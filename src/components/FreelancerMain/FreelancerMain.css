@@ -1,0 +1,178 @@
+/* Main container: Scrollable page */
+.freelancer-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Content wrapper to make everything scrollable */
+.content-wrapper {
+  flex: 1;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+.footer p {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.navbar-buttons {
+  display: flex;
+}
+
+.nav-btn {
+  margin-left: 15px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5e5e5e;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 25px;
+  width: 100px;
+}
+
+.nav-btn:hover {
+  background-color: #ff8d73;
+}
+
+/* Background Section */
+.background-container {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  z-index: -1;
+}
+
+.overlay-content {
+  margin-left: 50px;
+  color: white;
+  max-width: 400px;
+}
+
+.overlay-content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.overlay-content p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.overlay-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffa59d;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 130px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.overlay-btn:hover {
+  background-color: #ff8474;
+  transform: scale(1.05);
+}
+
+/* Cards Section */
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+}
+
+.card {
+  width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-content h5 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #555;
+}

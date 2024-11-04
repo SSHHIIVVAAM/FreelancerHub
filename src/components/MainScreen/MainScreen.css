@@ -1,0 +1,136 @@
+/* Main container with animation */
+.main-screen {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    opacity: 0; /* Hidden initially */
+    transition: opacity 1s ease-in-out; /* Fade-in transition */
+}
+
+/* Fade-in animation */
+.main-screen.fade-in {
+    opacity: 1;
+}
+
+/* Background animation */
+.blur-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0px);
+    opacity: 10;
+    animation: zoom-in 2s ease-out forwards; /* Zoom-in animation */
+}
+
+/* Zoom-in effect */
+@keyframes zoom-in {
+    0% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Content section with slide-in animation */
+.content {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    /* border-radius: 1px; */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-image: url(/src/assets/OptionSetBackground.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 32.6rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateY(50px); /* Start below */
+    opacity: 0;
+    transition: all 1.5s ease-in-out; /* Smooth transition */
+}
+
+/* Slide-in animation */
+.content.slide-in {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Logo Styles */
+.logo {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+    animation: fade-in-logo 2s ease-in forwards; /* Fade-in logo */
+}
+
+/* Fade-in for logo */
+@keyframes fade-in-logo {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Title Text */
+.content h1 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #343a40;
+    animation: text-fade-in 2s ease-out forwards; /* Text fade-in */
+}
+
+/* Text fade-in animation */
+@keyframes text-fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Buttons Container */
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* "OR" Text */
+.or-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Button Styles */
+.main-btn {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ca5354;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.2rem;
+}
+
+/* Button Hover Effect */
+.main-btn:hover {
+    background-color: #afafa8;
+    transform: scale(1.1); /* Slight zoom on hover */
+}

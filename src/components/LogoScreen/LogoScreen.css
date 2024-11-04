@@ -1,0 +1,52 @@
+/* Fullscreen container */
+.logo-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(../../assets/BackGroundLogo.gif);
+}
+
+/* Card wrapper for logo and content */
+.card1 {
+  background-color: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.5); /* Start small */
+  animation: fadeInScale 2s ease-out forwards; /* Animation triggers on mount */
+}
+
+/* Logo styling */
+.logo-image {
+  width: 500px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Card content */
+.card-content h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card-content p {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Keyframes for fade-in and scale effect */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5); /* Start smaller */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* End at normal size */
+  }
+}

@@ -1,0 +1,194 @@
+/* Add padding to prevent login page from touching the screen borders */
+.login-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  padding: 20px; /* Space between the main screen and login sections */
+  box-sizing: border-box; /* Ensure padding doesn’t affect the layout */
+}
+
+/* Left Section with Smooth Slide-in Animation */
+.left-section {
+  width: 70%;
+  background-image: url("/src/assets/LoggedInBack.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  opacity: 0; /* Initial state for animation */
+}
+
+/* Header and Paragraph Styling for Left Section */
+.left-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.left-section p {
+  font-size: 1.5rem;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+/* Right Section with Fade-in Animation */
+.right-section {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #696c71; /* Dark background for better contrast */
+  opacity: 1; /* Ensure it's visible */
+  border-radius: 1px; /* Rounded corners */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Login Container Styling */
+.login-container {
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  background-color: #696c71; /* White background for form */
+  text-align: center;
+  transform: translateY(-30px); /* Slide in from top */
+  /* opacity: 0; */
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+  margin-right: 20px;
+}
+
+.form-group label{
+  color: #ffffff;
+}
+
+/* Input Field Styling */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #bfbfbf;
+  border-radius: 4px;
+  background-color: #bfbfbf; /* Light grey background for inputs */
+}
+
+/* Button Styling */
+button {
+  width: 50%;
+  padding: 10px;
+  background-color: #929da1; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Error Popup with Bounce Animation */
+.error-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #dc3545; /* Red border for error */
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.error-popup button {
+  background-color: #dc3545; /* Red background for close button */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.error-popup button:hover {
+  background-color: #c82333; /* Darker red on hover */
+  transform: scale(1.1);
+}
+
+.animate-slide-in-top{
+  color: #ffffff !important;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Assign animations */
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.animate-slide-in-top {
+  animation: slideInTop 0.6s forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.5s forwards;
+}
