@@ -10,6 +10,7 @@ import ClientMain from "./components/ClientMain/ClientMain";
 import FreelancerLoginPage from "./components/Login/signupFreelancer/LoginPage";
 import FreelancerSignupPage from "./components/Login/signupFreelancer/FreelancerSignupPage";
 import FreelancerMainPage from "./components/FreeHomePage/FreelancerMainPage";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/freelancer-login" element={<FreelancerLoginPage />} />
         <Route path="/freelancer-signup" element={<FreelancerSignupPage />} />
         <Route path="/freelancer-main" element={<FreelancerMainPage />} />
+        <Route path="/ProfilePage" element={<ProfilePage />} />
       </Routes>
     </Router>
   );
