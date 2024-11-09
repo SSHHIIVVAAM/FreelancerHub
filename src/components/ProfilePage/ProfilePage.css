@@ -1,4 +1,4 @@
-.profile-page {
+/* .profile-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,4 +44,109 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+ */
+
+
+
+
+ .profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../../assets/BackGroundLogo.gif);
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+
+.profile-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.name {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px; /* Space between name and info div */
+}
+
+.info-div {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 3px;
+  margin: 10px 0;
+  width: 100%;
+}
+.info-div h3 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.edit-input {
+  background-color: #fff;  /* White background for inputs */
+}
+
+input:focus, textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+.label-grey {
+  color: grey;
+  margin-bottom: 1px;
+  align-self: flex-start;
+  font-weight: 300;
+}
+.custom-button {
+  margin: 12px;
+}
+.custom-cancel-button:hover {
+  background-color: transparent !important; /* Prevent background color change */
+  color: #000 !important; /* Ensure the text color stays the same */
+  border-color: #000 !important; /* Optional: Ensure border color stays the same */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-card {
+    width: 90%; /* Ensure card is responsive on small screens */
+    padding: 15px;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .info-div {
+    padding: 8px;
+  }
+
+
 }
