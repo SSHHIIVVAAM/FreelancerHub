@@ -134,3 +134,15 @@
     transform: scale(1.2);
   }
   
+
+  .bttn{
+    background-color: #ffffff;
+    color: black;
+    font-weight: 900;
+    margin-right: -100px;
+    margin-top: 0px;
+  }
+
+  .hero-image .bttn{
+    margin-left: 50px;
+  }

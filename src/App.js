@@ -11,6 +11,7 @@ import FreelancerLoginPage from "./components/Login/signupFreelancer/LoginPage";
 import FreelancerSignupPage from "./components/Login/signupFreelancer/FreelancerSignupPage";
 import FreelancerMainPage from "./components/FreeHomePage/FreelancerMainPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
+import BrowseJobsPage from "./components/BrowseJobs/BrowseJob"; // Import the new page
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/freelancer-signup" element={<FreelancerSignupPage />} />
         <Route path="/freelancer-main" element={<FreelancerMainPage />} />
         <Route path="/ProfilePage" element={<ProfilePage />} />
+        <Route path="/browse-jobs" element={<BrowseJobsPage />} /> {/* New route */}
       </Routes>
     </Router>
   );

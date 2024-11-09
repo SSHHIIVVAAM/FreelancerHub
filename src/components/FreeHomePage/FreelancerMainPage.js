@@ -24,6 +24,14 @@ const FreelancerMainPage = () => {
     setIsJobFormVisible(!isJobFormVisible);
   };
 
+  const goToProfilePage = () => {
+    navigate("/ProfilePage");
+  };
+
+  const goToBrowseJob = () => {
+    navigate("/browse-jobs");
+  }
+
   return (
     <div className="main-container1">
       {/* Navbar */}
@@ -31,10 +39,12 @@ const FreelancerMainPage = () => {
         <div className="navbar-logo">Freelancer Hub</div>
         <ul className="navbar-links">
           <li onClick={handleSignOut}>Sign Out</li>
+         
         </ul>
         <button className="add-job-button" onClick={toggleJobForm}>
           Add Jobs
         </button>
+        
       </nav>
 
       {/* Hero Section */}
@@ -46,14 +56,16 @@ const FreelancerMainPage = () => {
             find new opportunities.
           </p>
           <div className="hero-buttons">
-            <button className="btn btn-primary">Browse Jobs</button>
-            <button className="btn btn-outline-secondary">Post a Job</button>
+            <button className="btn btn-primary" onClick={goToBrowseJob}>Browse Jobs</button>
+            <button className="btn btn-outline-secondary" onClick={toggleJobForm}>Post a Job</button>
           </div>
         </div>
         <div className="hero-image">
           <img src={CardImage} alt="Freelancer working" />
+          <button className="bttn" onClick={goToProfilePage}>Go to Profile</button> {/* New Profile Button */}
         </div>
       </div>
+      
 
       {/* Job Form */}
       {isJobFormVisible && <JobForm onClose={toggleJobForm} />}

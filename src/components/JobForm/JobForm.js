@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "./JobForm.css"; // Import CSS for styling
 
 const JobForm = ({ onClose }) => {
-  const [recruiterId] = useState("4a52df03-de22-41dc-b93c-ed9df5e00d2c"); // Replace with dynamic retrieval if needed
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -13,6 +12,8 @@ const JobForm = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const recruiterId = localStorage.getItem("recruiterId"); // Get recruiterId from local storage
 
     const proposalData = {
       recruiterId,
