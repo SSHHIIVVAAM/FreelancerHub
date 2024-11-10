@@ -1,4 +1,4 @@
-/* src/components/BrowseJobsPage.css */
+/* src/components/BrowseJobsPage.css
 .browse-jobs-page {
     padding: 20px;
     max-width: 800px;
@@ -43,5 +43,143 @@
   
   .apply-button:hover {
     background-color: #1a6d2a;
+  }
+   */
+
+
+
+
+
+
+  
+  .background-image {
+    background-image: url('../../assets/profilebg.png'); /* Ensure the path is correct */
+    background-size: cover;
+    background-attachment: fixed; /* Fix the background */
+    background-position: center; /* Center the background image */
+    min-height: 100vh;
+    padding: 30px 0;
+    filter: brightness(1);
+    position: relative;
+    z-index: 0; /* Set z-index for background */
+    overflow: hidden; /* Ensure background doesn’t scroll */
+}
+
+  .filter-container {
+    position: relative;
+    z-index: 10; /* Ensure it's above other elements */
+  }
+  
+  /* Ensure the dropdown and button are clickable */
+  .form-select, .btn {
+    z-index: 20; /* Higher z-index for dropdown and button */
+    position: relative; /* Ensure the z-index takes effect */
+  }
+  
+  .browse-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  /* Filter Section */
+  .filter-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+  }
+  
+  /* Card Styling */
+  .card {
+    border: none;
+    border-radius: 8px;
+    max-width: 100%;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Custom Card for Larger Width */
+  .custom-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+  }
+  
+  /* Image Styling - Centering the Image */
+  .card-body .row .col-md-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Make the Image in the Center */
+  .card-body .row .col-md-4 img {
+    max-height: 210px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Right-side Content Styling */
+  .card-body .col-md-8 {
+    padding-left: 20px;
+  }
+  
+  /* Title Styling */
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Card Text Styling */
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Empty and Error State Text */
+  .text-white {
+    color: white !important;
+  }
+  
+  /* Optional: Button Styling */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  .label-grey {
+    color: grey;
+    margin-bottom: 1px;
+    align-self: flex-start;
+    font-weight: 100;
+  }
+  .custom-button {
+    margin: 3px;
+  }
+  /* Optional: Responsive Adjustments */
+  @media (max-width: 768px) {
+    .card-body .row {
+      flex-direction: column;
+    }
+  
+    .card-body .col-md-4,
+    .card-body .col-md-8 {
+      width: 100%;
+      padding-left: 0;
+    }
+  
+    .card-body .col-md-8 {
+      text-align: center;
+      padding-left: 0;
+    }
+  
+    .card-body .row .col-md-4 img {
+      max-height: 150px;
+    }
   }
   
