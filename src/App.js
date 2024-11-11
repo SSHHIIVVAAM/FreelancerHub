@@ -12,6 +12,9 @@ import FreelancerSignupPage from "./components/Login/signupFreelancer/Freelancer
 import FreelancerMainPage from "./components/FreeHomePage/FreelancerMainPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import BrowseJobsPage from "./components/BrowseJobs/BrowseJob"; // Import the new page
+import SignUpFreelancer1 from "./components/FreelancerSignUp/FreelancerSignUp"; // Import the new page
+import FreelancerLogin from "./components/FreelancerLogin/FreelancerLogin";
+import FreelancerProfilePage from "./components/FreelancerProfilePage/ProfilePage";
 
 const App = () => {
   return (
@@ -28,6 +31,9 @@ const App = () => {
         <Route path="/freelancer-main" element={<FreelancerMainPage />} />
         <Route path="/ProfilePage" element={<ProfilePage />} />
         <Route path="/browse-jobs" element={<BrowseJobsPage />} /> {/* New route */}
+        <Route path="/SignUp-Freelancer" element={<SignUpFreelancer1 />} /> {/* New route */}
+        <Route path="/FreelancerLogin" element={<FreelancerLogin />} /> {/* New route */}
+        <Route path="/FreelancerProfilePage" element={<FreelancerProfilePage />} /> {/* New route */}
       </Routes>
     </Router>
   );

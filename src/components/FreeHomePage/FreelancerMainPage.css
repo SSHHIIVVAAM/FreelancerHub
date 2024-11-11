@@ -1,5 +1,5 @@
 /* Main Container */
-.main-container1 {
+.main-container2 {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -8,7 +8,7 @@
   }
   
   /* Navbar */
-  .navbar {
+  .navbar2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,33 +18,33 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .navbar-logo {
+  .navbar-logo2 {
     font-size: 1.5rem;
     font-weight: bold;
     color: black;
     margin-left: 10rem;
   }
   
-  .navbar-links {
+  .navbar-links2 {
     display: flex;
     list-style-type: none;
     gap: 15px;
     color: black;
   }
   
-  .navbar-links li {
+  .navbar-links2 li {
     cursor: pointer;
     transition: color 0.3s;
     margin-left: 30rem;
     font-weight: bolder;
   }
   
-  .navbar-links li:hover {
+  .navbar-links2 li:hover {
     color: #ffc107;
   }
   
   /* Add Jobs Button */
-  .add-job-button {
+  .add-job-button2 {
     background-color: #495262;
     color: white;
     border: none;
@@ -57,12 +57,12 @@
     margin-right: 10rem;
   }
   
-  .add-job-button:hover {
+  .add-job-button2:hover {
     background-color: #218838;
   }
   
   /* Hero Section */
-  .hero-section {
+  .hero-section2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,28 +73,28 @@
     width: 90rem;
   }
   
-  .hero-content {
+  .hero-content2 {
     max-width: 50%;
     margin-left: 10rem;
   }
   
-  .hero-content h1 {
+  .hero-content2 h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     color: white;
   }
   
-  .hero-content p {
+  .hero-content2 p {
     font-size: 1.2rem;
     margin-bottom: 20px;
   }
   
-  .hero-buttons {
+  .hero-buttons2 {
     margin-top: 20px;
     gap: 10px;
   }
   
-  .hero-buttons .btn {
+  .hero-buttons2 .btn2 {
     margin-right: 15px;
     margin-bottom: 10px;
     width: 20rem;
@@ -103,39 +103,39 @@
     font-weight: bolder;
   }
   
-  .hero-image img {
+  .hero-image2 img {
     width: 400px;
     border-radius: 10px;
     margin-right: 10rem;
   }
   
   /* Footer */
-  .footer {
+  .footer2 {
     background-color: #495262;
     color: white;
     padding: 20px;
     text-align: center;
   }
   
-  .social-icons {
+  .social-icons2 {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
   }
   
-  .social-icons svg {
+  .social-icons2 svg {
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.3s;
   }
   
-  .social-icons svg:hover {
+  .social-icons2 svg:hover {
     transform: scale(1.2);
   }
   
 
-  .bttn{
+  .bttn2{
     background-color: #ffffff;
     color: black;
     font-weight: 900;
@@ -143,6 +143,6 @@
     margin-top: 0px;
   }
 
-  .hero-image .bttn{
+  .hero-image2 .bttn2{
     margin-left: 50px;
   }

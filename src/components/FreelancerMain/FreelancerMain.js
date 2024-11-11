@@ -8,42 +8,65 @@ const FreelancerMain = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="freelancer-main">
+    <div className="freelancerMain1">
       {/* Navigation Bar */}
-      <div className="navbar">
-        <div className="navbar-brand">Recruiter HUB</div>
-        <div className="navbar-buttons">
-          <button onClick={() => navigate("/freelancer-login")} className="nav-btn">
+      <div className="navbar1">
+        <div className="navbarBrand1">Recruiter HUB</div>
+        <div className="navbarButtons1">
+          <button
+            onClick={() => navigate("/freelancer-login")}
+            className="navButton1"
+          >
             Login
           </button>
-          <button onClick={() => navigate("/freelancer-signup")} className="nav-btn">
+          <button
+            onClick={() => navigate("/freelancer-signup")}
+            className="navButton1"
+          >
             Get Started
           </button>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="content-wrapper">
+      <div className="contentWrapper1">
         {/* Background Section */}
-        <div className="background-container">
-          <img src={BackgroundImage} alt="Background" className="background-image" />
-          <div className="overlay-content">
+        <div className="backgroundContainer1">
+          <img
+            src={BackgroundImage}
+            alt="Background"
+            className="backgroundImage1"
+          />
+          <div className="overlayContent1">
             <h1>Explore Exciting Projects</h1>
-            <p>Connect with recruiters, showcase your talent, and discover your next big opportunity.</p>
-            <button className="overlay-btn" onClick={() => navigate("/freelancer-signup")}>
+            <p>
+              Connect with recruiters, showcase your talent, and discover your
+              next big opportunity.
+            </p>
+            <button
+              className="overlayButton1"
+              onClick={() => navigate("/freelancer-signup")}
+            >
               Get Started
             </button>
           </div>
         </div>
 
         {/* Cards Section */}
-        <div className="card-container">
+        <div className="cardContainer1">
           {[1, 2, 3, 4].map((item) => (
-            <div className="card" key={item}>
-              <img src={CardImage} alt={`Card ${item}`} className="card-image" />
-              <div className="card-content">
+            <div className="card1" key={item}>
+              <img
+                src={CardImage}
+                alt={`Card ${item}`}
+                className="cardImage1"
+              />
+              <div className="cardContent1">
                 <h5>Project {item}</h5>
-                <p>Discover amazing freelance opportunities and showcase your skills.</p>
+                <p>
+                  Discover amazing freelance opportunities and showcase your
+                  skills.
+                </p>
               </div>
             </div>
           ))}
@@ -51,25 +74,40 @@ const FreelancerMain = () => {
       </div>
 
       {/* Footer Section */}
-      <footer className="footer">
+      <footer className="footer1">
         <p>Connect with us on social media</p>
-        <div className="social-icons">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        <div className="socialIcons1">
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-              alt="Instagram" className="social-icon"
+              alt="Instagram"
+              className="socialIcon1"
             />
           </a>
-          <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.whatsapp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-              alt="WhatsApp" className="social-icon"
+              alt="WhatsApp"
+              className="socialIcon1"
             />
           </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook" className="social-icon"
+              alt="Facebook"
+              className="socialIcon1"
             />
           </a>
         </div>
