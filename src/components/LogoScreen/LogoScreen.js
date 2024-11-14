@@ -16,10 +16,10 @@ const LogoScreen = () => {
   }, [navigate]);
 
   return (
-    <div className="logo-screen">
-      <div className="card1">
-        <img src={Logo1} alt="Freelancer Hub Logo" className="logo-image" />
-        <div className="card-content">
+    <div className="logo-screen11">
+      <div className="card11">
+        <img src={Logo1} alt="Freelancer Hub Logo" className="logo-image11" />
+        <div className="card-content11">
           <h2>Welcome to Freelancer Hub</h2>
           <p>Your journey to endless freelancing opportunities starts here!</p>
         </div>

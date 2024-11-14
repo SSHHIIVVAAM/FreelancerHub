@@ -33,36 +33,36 @@ const FreelancerMainPage = () => {
   }
 
   return (
-    <div className="main-container2">
+    <div className="main-container255">
       {/* Navbar */}
-      <nav className="navbar2">
-        <div className="navbar-logo2">Freelancer Hub</div>
-        <ul className="navbar-links2">
+      <nav className="navbar255">
+        <div className="navbar-logo255">Freelancer Hub</div>
+        <ul className="navbar-links255">
           <li onClick={handleSignOut}>Sign Out</li>
          
         </ul>
-        <button className="add-job-button2" onClick={toggleJobForm}>
+        <button className="add-job-button255" onClick={toggleJobForm}>
           Add Jobs
         </button>
         
       </nav>
 
       {/* Hero Section */}
-      <div className="hero-section2">
-        <div className="hero-content2">
+      <div className="hero-section255">
+        <div className="hero-content255">
           <h1>Welcome to Freelancer HUB</h1>
           <p>
             Discover talented freelancers for your projects or share your skills to
             find new opportunities.
           </p>
-          <div className="hero-buttons2">
-            <button className="btn btn-primary2" onClick={goToBrowseJob}>Browse Jobs</button>
-            <button className="btn btn-outline-secondary2" onClick={toggleJobForm}>Post a Job</button>
+          <div className="hero-buttons255">
+            <button className="btn btn-primary255" onClick={goToBrowseJob}>Browse Jobs</button>
+            <button className="btn btn-outline-secondary255" onClick={toggleJobForm}>Post a Job</button>
           </div>
         </div>
-        <div className="hero-image2">
+        <div className="hero-image255">
           <img src={CardImage} alt="Freelancer working" />
-          <button className="bttn2" onClick={goToProfilePage}>Go to Profile</button> {/* New Profile Button */}
+          <button className="bttn255" onClick={goToProfilePage}>Go to Profile</button> {/* New Profile Button */}
         </div>
       </div>
       
@@ -71,9 +71,9 @@ const FreelancerMainPage = () => {
       {isJobFormVisible && <JobForm onClose={toggleJobForm} />}
 
       {/* Footer */}
-      <footer className="footer2">
+      <footer className="footer255">
         <p>Follow us on:</p>
-        <div className="social-icons2">
+        <div className="social-icons255">
           <FaInstagram />
           <FaFacebook />
           <FaWhatsapp />

@@ -64,25 +64,25 @@ const FreelancerSignupPage = () => {
   };
 
   return (
-    <div className="signup-page">
-      <div className="left-section1">
+    <div className="signup-page44">
+      <div className="left-section144">
         {/* Left Section with Background Image Overlay */}
-        <div className="overlay">
+        <div className="overlay44">
           <h2>Join Freelancer Hub</h2>
           <p>Find the best talent or become a part of something bigger.</p>
         </div>
       </div>
 
-      <div className="right-section">
+      <div className="right-section44">
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="form-group44">
             <label>Profile Picture:</label>
             <input type="file" onChange={handleFileChange} required />
           </div>
 
-          <div className="form-wrapper">
-            <div className="form-group">
+          <div className="form-wrapper44">
+            <div className="form-group44">
               <label>Recruiter Name:</label>
               <input
                 type="text"
@@ -93,7 +93,7 @@ const FreelancerSignupPage = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group44">
               <label>Password:</label>
               <input
                 type="password"
@@ -104,7 +104,7 @@ const FreelancerSignupPage = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group44">
               <label>Date of Birth:</label>
               <input
                 type="date"
@@ -115,7 +115,7 @@ const FreelancerSignupPage = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group44">
               <label>Email:</label>
               <input
                 type="email"
@@ -126,7 +126,7 @@ const FreelancerSignupPage = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group44">
               <label>Phone Number:</label>
               <input
                 type="tel"
@@ -137,7 +137,7 @@ const FreelancerSignupPage = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group44">
               <label>Company Name:</label>
               <input
                 type="text"
@@ -148,7 +148,7 @@ const FreelancerSignupPage = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group44">
               <label>Company Address:</label>
               <input
                 type="text"
@@ -160,7 +160,7 @@ const FreelancerSignupPage = () => {
             </div>
           </div>
 
-          <div className="form-group">
+          <div className="form-group44">
             <label>About Company:</label>
             <textarea
               name="aboutCompany"
@@ -170,10 +170,10 @@ const FreelancerSignupPage = () => {
             />
           </div>
 
-          <button className="btn1" type="submit">Sign Up</button>
+          <button className="btn144" type="submit">Sign Up</button>
         </form>
 
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="error-message44">{error}</p>}
       </div>
     </div>
   );

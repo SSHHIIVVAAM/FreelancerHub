@@ -1,14 +1,16 @@
 /* Fullscreen container */
-.logo-screen {
+.logo-screen11 {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url(../../assets/BackGroundLogo.gif);
+  background-image: url(../../assets/profilebg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Card wrapper for logo and content */
-.card1 {
+.card11 {
   background-color: white;
   padding: 10px;
   border-radius: 12px;
@@ -20,20 +22,20 @@
 }
 
 /* Logo styling */
-.logo-image {
+.logo-image11 {
   width: 500px;
   height: auto;
   margin-bottom: 20px;
 }
 
 /* Card content */
-.card-content h2 {
+.card-content11 h2 {
   margin: 0;
   font-size: 1.5rem;
   color: #333;
 }
 
-.card-content p {
+.card-content11 p {
   margin-top: 8px;
   font-size: 1rem;
   color: #666;

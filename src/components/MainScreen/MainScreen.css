@@ -1,5 +1,5 @@
 /* Main container with animation */
-.main-screen {
+.main-screen22 {
     position: relative;
     height: 100vh;
     width: 100%;
@@ -9,15 +9,18 @@
     overflow: hidden;
     opacity: 0; /* Hidden initially */
     transition: opacity 1s ease-in-out; /* Fade-in transition */
+    background-image: url(../../assets/profilebg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Fade-in animation */
-.main-screen.fade-in {
+.main-screen22.fade-in22 {
     opacity: 1;
 }
 
 /* Background animation */
-.blur-background img {
+.blur-background22 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -27,7 +30,7 @@
 }
 
 /* Zoom-in effect */
-@keyframes zoom-in {
+@keyframes zoom-in22 {
     0% {
         transform: scale(1.2);
     }
@@ -37,7 +40,7 @@
 }
 
 /* Content section with slide-in animation */
-.content {
+.content22 {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.85);
     padding: 40px;
@@ -46,7 +49,7 @@
     background-image: url(/src/assets/OptionSetBackground.avif);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 32.6rem;
+    height: 37.4rem;
     width: 25rem;
     display: flex;
     flex-direction: column;
@@ -58,21 +61,21 @@
 }
 
 /* Slide-in animation */
-.content.slide-in {
+.content22.slide-in22 {
     transform: translateY(0);
     opacity: 1;
 }
 
 /* Logo Styles */
-.logo {
-    width: 400px;
+.logo22 {
+    width: 300px;
     height: 400px;
     object-fit: contain;
     animation: fade-in-logo 2s ease-in forwards; /* Fade-in logo */
 }
 
 /* Fade-in for logo */
-@keyframes fade-in-logo {
+@keyframes fade-in-logo22 {
     0% {
         opacity: 0;
         transform: scale(0.8);
@@ -84,7 +87,7 @@
 }
 
 /* Title Text */
-.content h1 {
+.content22 h1 {
     margin-bottom: 10px;
     font-size: 1.5rem;
     color: #343a40;
@@ -92,7 +95,7 @@
 }
 
 /* Text fade-in animation */
-@keyframes text-fade-in {
+@keyframes text-fade-in22 {
     0% {
         opacity: 0;
     }
@@ -102,7 +105,7 @@
 }
 
 /* Buttons Container */
-.buttons-container {
+.buttons-container22 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,14 +113,14 @@
 }
 
 /* "OR" Text */
-.or-text {
+.or-text22 {
     font-size: 1.5rem;
     font-weight: bold;
     color: #343a40;
 }
 
 /* Button Styles */
-.main-btn {
+.main-btn22 {
     width: 150px;
     padding: 10px;
     border: none;
@@ -130,7 +133,7 @@
 }
 
 /* Button Hover Effect */
-.main-btn:hover {
+.main-btn22:hover {
     background-color: #afafa8;
     transform: scale(1.1); /* Slight zoom on hover */
 }

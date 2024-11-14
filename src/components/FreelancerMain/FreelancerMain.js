@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./FreelancerMain.css";
 import BackgroundImage from "../../assets/MainScreenBackground.jpg";
-import CardImage from "../../assets/RecruiLogin.jpg"; // Placeholder image for cards
+import CardImage from "../../assets/Signup2.jpg"; // Placeholder image for cards
 
 const FreelancerMain = () => {
   const navigate = useNavigate();

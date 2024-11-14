@@ -41,19 +41,19 @@ const FreelancerLoginPage = () => {
   };
 
   return (
-    <div className="login-page">
+    <div className="login-page33">
       {/* Left Section */}
-      <div className="left-section animate-slide-in-left">
+      <div className="left-section33 animate-slide-in-left33">
         <h1>Welcome to Recruiter Hub</h1>
         <p>Discover freelance opportunities and connect with top recruiters.</p>
       </div>
 
       {/* Right Section - Login Form */}
-      <div className="right-section animate-fade-in">
-        <div className="login-container">
-          <h2 className="animate-slide-in-top">Recruiter Login</h2>
+      <div className="right-section33 animate-fade-in33">
+        <div className="login-container33">
+          <h2 className="animate-slide-in-top33">Recruiter Login</h2>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="form-group33">
               <label>Email:</label>
               <input
                 type="email"
@@ -62,7 +62,7 @@ const FreelancerLoginPage = () => {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group33">
               <label>Password:</label>
               <input
                 type="password"
@@ -75,7 +75,7 @@ const FreelancerLoginPage = () => {
           </form>
 
           {errorMessage && (
-            <div className="error-popup animate-bounce-in">
+            <div className="error-popup33 animate-bounce-in33">
               <p>{errorMessage}</p>
               <button onClick={() => setErrorMessage(null)}>Close</button>
             </div>
