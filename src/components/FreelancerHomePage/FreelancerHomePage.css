@@ -1,0 +1,193 @@
+.freelancer-home66 {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar66 {
+    display: flex;
+    justify-content: space-between; /* Distribute space between title and buttons */
+    align-items: center; /* Vertically center content */
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .navbar-title66 {
+    font-size: 24px;
+    font-weight: bold;
+    flex: 1; /* Allow title to take available space */
+  }
+  
+  .navbar-buttons66 {
+    display: flex; /* Align buttons horizontally */
+    gap: 10px; /* Add space between buttons */
+  }
+
+  .logout-btn66 {
+    background-color: #333333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 120px;
+    text-align: center;
+  }
+  
+  
+.logout-btn66:hover {
+    background-color: #ff0000;
+  }
+  
+  .image-section66 {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .hero-image66 {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+    background-image: url(/src/assets/profilebg.png);
+  }
+  
+  .filter-container66 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    background-color: #333;
+  }
+  
+  .filter-container66 input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .filter-container66 button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .clear-filters66 {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .clear-filters66:hover {
+    background-color: #ff0000;
+  }
+  
+  .job-list66 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .job-card66 {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+  }
+  
+  .job-card66 h3 {
+    margin: 0 0 10px;
+  }
+  
+  .pagination66 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .pagination66 button {
+    cursor: pointer;
+    width: 200px;
+  }
+  
+  .pagination66 span {
+    line-height: 2.5;
+  }
+  
+
+  .apply-btn66 {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .apply-btn66:hover {
+    background-color: #45a049;
+  }
+  
+  .feedback-message66 {
+    text-align: center;
+    color: green;
+    margin-top: 10px;
+  }
+  
+
+  .popup66 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .popup-content66 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+  }
+  
+  .popup-content66 textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .close-popup66 {
+    margin-left: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .feedback-message66 {
+    text-align: center;
+    color: green;
+    margin-top: 10px;
+  }
+  

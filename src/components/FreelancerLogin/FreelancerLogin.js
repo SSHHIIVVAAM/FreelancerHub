@@ -10,36 +10,41 @@ const FreelancerLoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await fetch("http://localhost:5022/api/Freelancer/FreelancerLogin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
+          Accept: "application/json", // Ensure backend supports this
         },
         body: JSON.stringify({ email, password }),
       });
-
-      const result = await response.json();
-
-      if (result.statusCode === 200) {
-        // Save freelancer data to localStorage
-        localStorage.setItem("freelancerId", result.data.freelancerId);
-        localStorage.setItem("freelancerName", result.data.freelancerName);
-        localStorage.setItem("profilePicUrl", result.data.profilePicUrl);
-        localStorage.setItem("skills", result.data.skills.join(", "));
-
-        alert("Successfully logged in!");
-        navigate("/FreelancerProfilePage"); // Navigate to freelancer main page
+  
+      if (response.ok) {
+        const result = await response.json();
+  
+        if (result.statusCode === 200) {
+          // Save freelancer data to localStorage
+          localStorage.setItem("freelancerId", result.data.freelancerId);
+          localStorage.setItem("freelancerName", result.data.freelancerName);
+          localStorage.setItem("profilePicUrl", result.data.profilePicUrl);
+          localStorage.setItem("skills", result.data.skills); // Adjusted
+  
+          alert("Successfully logged in!");
+          navigate("/FreelancerHomePage");
+        } else {
+          setErrorMessage(result.message || "Invalid login details.");
+        }
       } else {
-        setErrorMessage("Invalid email or password. Please try again.");
+        setErrorMessage("Invalid login attempt. Please check your credentials.");
       }
     } catch (error) {
       console.error("Error during login:", error);
       setErrorMessage("Something went wrong. Please try again later.");
     }
   };
+  
 
   return (
     <div className="login-page">
