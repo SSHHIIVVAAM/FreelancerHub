@@ -31,6 +31,9 @@ const FreelancerMainPage = () => {
   const goToBrowseJob = () => {
     navigate("/browse-jobs");
   }
+  const toggleFreelancers = () => {
+    navigate("/GetAllFreelancers");
+  }
 
   return (
     <div className="main-container255">
@@ -43,6 +46,9 @@ const FreelancerMainPage = () => {
         </ul>
         <button className="add-job-button255" onClick={toggleJobForm}>
           Add Jobs
+        </button>
+        <button className="add-job-button255" onClick={toggleFreelancers}>
+          Get Freelancers
         </button>
         
       </nav>

@@ -17,6 +17,7 @@ import FreelancerLogin from "./components/FreelancerLogin/FreelancerLogin";
 import FreelancerProfilePage from "./components/FreelancerProfilePage/ProfilePage";
 import FreelancerHomePage from "./components/FreelancerHomePage/FreelancerHomePage";
 import AppliedJobPage from "./components/AppliedJobsPage/AppliedJobsPage";
+import GetAllFreelancers from "./components/GetAllFreelancers/GetAllFreelancers";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/FreelancerProfilePage" element={<FreelancerProfilePage />} /> {/* New route */}
         <Route path="/FreelancerHomePage" element={<FreelancerHomePage />} /> {/* New route */}
         <Route path="/AppliedJobPage" element={<AppliedJobPage />} /> {/* New route */}
+        <Route path="/GetAllFreelancers" element={<GetAllFreelancers />} /> {/* New route */}
       </Routes>
     </Router>
   );

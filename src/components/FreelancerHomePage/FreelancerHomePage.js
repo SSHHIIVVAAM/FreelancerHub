@@ -129,15 +129,29 @@ const FreelancerHomePage = () => {
     navigate("/AppliedJobPage");  // Navigate to the Applied Job Page
   };
 
+  const navigateToProfile = () => {
+    navigate("/FreelancerProfilePage");  // Navigate to the Applied Job Page
+  };
+
+  const navigateToMain = () => {
+    navigate("/home");  // Navigate to the Applied Job Page
+  };
+
   return (
     <div className="freelancer-home66">
       {/* Navbar */}
       <nav className="navbar66">
         <span className="navbar-title66">Freelancer</span>
-        <button className="logout-btn66">Logout</button>
+        <button className="logout-btn66" onClick={navigateToProfile}>
+          My Profile
+        </button>
+        <button className="logout-btn66" onClick={navigateToMain}>
+          Logout
+        </button>
         <button className="logout-btn66" onClick={navigateToApplications}>
           Applications
         </button>
+        
       </nav>
 
       {/* Image Section */}
