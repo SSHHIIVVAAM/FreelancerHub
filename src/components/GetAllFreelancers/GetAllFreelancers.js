@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import './GetAllFreelancers.css';
+import React, { useEffect, useState } from "react";
+import "./GetAllFreelancers.css";
 
 const GetAllFreelancers = () => {
   const [freelancers, setFreelancers] = useState([]);
   const [filteredFreelancers, setFilteredFreelancers] = useState([]);
   const [skills, setSkills] = useState([]);
   const [roles, setRoles] = useState([]);
-  const [skillInput, setSkillInput] = useState(''); // Skill input for text format
-  const [roleInput, setRoleInput] = useState(''); // Role input for text format
+  const [skillInput, setSkillInput] = useState(""); // Skill input for text format
+  const [roleInput, setRoleInput] = useState(""); // Role input for text format
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedFreelancerId, setSelectedFreelancerId] = useState('');
-  const [message, setMessage] = useState('');
+  const [selectedFreelancerId, setSelectedFreelancerId] = useState("");
+  const [message, setMessage] = useState("");
   const [currentPage, setCurrentPage] = useState(1); // Track the current page
   const [totalPages, setTotalPages] = useState(1); // Track total pages
-  const recruiterId = localStorage.getItem('recruiterId'); // Assume recruiterId is stored in localStorage
+  const recruiterId = localStorage.getItem("recruiterId"); // Assume recruiterId is stored in localStorage
 
   useEffect(() => {
     fetchFreelancers();
-  }, [currentPage]); // Fetch freelancers when page changes
+  }, []); // Fetch freelancers only once on mount
 
   const fetchFreelancers = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5022/api/Recruiter/GetAllFreelancers?pageIndex=${currentPage}&pageSize=10`,
+        `http://localhost:5022/api/Recruiter/GetAllFreelancers?pageIndex=1&pageSize=1000`, // Fetch all records initially
         {
-          method: 'GET',
-          headers: { Accept: 'text/plain' },
+          method: "GET",
+          headers: { Accept: "text/plain" },
         }
       );
 
@@ -39,11 +39,11 @@ const GetAllFreelancers = () => {
       if (data.statusCode === 200) {
         const freelancerData = data.data.result;
         setFreelancers(freelancerData);
-        setFilteredFreelancers(freelancerData);
-        setTotalPages(data.data.totalPages); // Set total pages from the response
+        setFilteredFreelancers(freelancerData); // Set all freelancers as filtered initially
+        setTotalPages(Math.ceil(freelancerData.length / 10)); // Set total pages based on the total freelancer count
         extractFilters(freelancerData);
       } else {
-        setError(data.message || 'Failed to fetch freelancers');
+        setError(data.message || "Failed to fetch freelancers");
       }
     } catch (err) {
       setError(err.message);
@@ -53,7 +53,9 @@ const GetAllFreelancers = () => {
   };
 
   const extractFilters = (freelancers) => {
-    const uniqueSkills = [...new Set(freelancers.flatMap((f) => f.skills.split(', ')))];
+    const uniqueSkills = [
+      ...new Set(freelancers.flatMap((f) => f.skills.split(", "))),
+    ];
     const uniqueRoles = [...new Set(freelancers.map((f) => f.role))];
     setSkills(uniqueSkills);
     setRoles(uniqueRoles);
@@ -67,20 +69,28 @@ const GetAllFreelancers = () => {
     let filtered = freelancers;
 
     if (skill) {
-      filtered = filtered.filter((f) => f.skills.toLowerCase().includes(skill.toLowerCase()));
+      filtered = filtered.filter((f) =>
+        f.skills.toLowerCase().includes(skill.toLowerCase())
+      );
     }
 
     if (role) {
-      filtered = filtered.filter((f) => f.role.toLowerCase().includes(role.toLowerCase()));
+      filtered = filtered.filter((f) =>
+        f.role.toLowerCase().includes(role.toLowerCase())
+      );
     }
 
-    setFilteredFreelancers(filtered);
+    setFilteredFreelancers(filtered); // Apply filter to all freelancers
+    setTotalPages(Math.ceil(filtered.length / 10)); // Recalculate total pages after filtering
+    setCurrentPage(1); // Reset to the first page after filtering
   };
 
   const handleCancelFilter = () => {
-    setSkillInput('');
-    setRoleInput('');
+    setSkillInput("");
+    setRoleInput("");
     setFilteredFreelancers(freelancers); // Reset to show all freelancers
+    setTotalPages(Math.ceil(freelancers.length / 10)); // Reset total pages
+    setCurrentPage(1); // Reset to the first page after cancelling filters
   };
 
   const openModal = (freelancerId) => {
@@ -90,30 +100,32 @@ const GetAllFreelancers = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setMessage('');
+    setMessage("");
   };
 
   const handleInterestedSubmit = async () => {
     if (!recruiterId || !selectedFreelancerId || !message) {
-      alert('All fields are required!');
+      alert("All fields are required!");
       return;
     }
 
     try {
       const response = await fetch(
-        `http://localhost:5022/api/Recruiter/InterestedInFreelancer?recruiterId=${recruiterId}&freelancerId=${selectedFreelancerId}&message=${encodeURIComponent(message)}`,
+        `http://localhost:5022/api/Recruiter/InterestedInFreelancer?recruiterId=${recruiterId}&freelancerId=${selectedFreelancerId}&message=${encodeURIComponent(
+          message
+        )}`,
         {
-          method: 'POST',
-          headers: { Accept: 'text/plain' },
+          method: "POST",
+          headers: { Accept: "text/plain" },
         }
       );
 
       const data = await response.json();
 
       if (response.ok && data.statusCode === 200) {
-        alert('Email sent successfully!');
+        alert("Email sent successfully!");
       } else {
-        alert(`Error: ${data.message || 'Failed to send email'}`);
+        alert(`Error: ${data.message || "Failed to send email"}`);
       }
     } catch (err) {
       alert(`Error: ${err.message}`);
@@ -124,6 +136,13 @@ const GetAllFreelancers = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber); // Change the current page
+  };
+
+  // Function to display freelancers for the current page
+  const paginateFreelancers = (freelancers) => {
+    const start = (currentPage - 1) * 10;
+    const end = start + 10;
+    return freelancers.slice(start, end);
   };
 
   if (loading) return <div className="loading">Loading...</div>;
@@ -159,7 +178,7 @@ const GetAllFreelancers = () => {
 
       {/* Freelancer Cards */}
       <div className="freelancers-list">
-        {filteredFreelancers.map((freelancer) => (
+        {paginateFreelancers(filteredFreelancers).map((freelancer) => (
           <div key={freelancer.freelancerId} className="freelancer-card">
             <img
               src={freelancer.profilePicUrl}
@@ -195,10 +214,14 @@ const GetAllFreelancers = () => {
       {/* Pagination */}
       <div className="pagination">
         {currentPage > 1 && (
-          <button onClick={() => handlePageChange(currentPage - 1)}>Previous</button>
+          <button onClick={() => handlePageChange(currentPage - 1)}>
+            Previous
+          </button>
         )}
         {currentPage < totalPages && (
-          <button onClick={() => handlePageChange(currentPage + 1)}>Next</button>
+          <button onClick={() => handlePageChange(currentPage + 1)}>
+            Next
+          </button>
         )}
       </div>
 
@@ -213,7 +236,10 @@ const GetAllFreelancers = () => {
               placeholder="Write your message here..."
             />
             <div className="modal-actions">
-              <button className="submit-button" onClick={handleInterestedSubmit}>
+              <button
+                className="submit-button"
+                onClick={handleInterestedSubmit}
+              >
                 Submit
               </button>
               <button className="close-button" onClick={closeModal}>
