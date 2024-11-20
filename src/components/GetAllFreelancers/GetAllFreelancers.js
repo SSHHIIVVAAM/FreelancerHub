@@ -6,23 +6,25 @@ const GetAllFreelancers = () => {
   const [filteredFreelancers, setFilteredFreelancers] = useState([]);
   const [skills, setSkills] = useState([]);
   const [roles, setRoles] = useState([]);
-  const [selectedSkill, setSelectedSkill] = useState('');
-  const [selectedRole, setSelectedRole] = useState('');
+  const [skillInput, setSkillInput] = useState(''); // Skill input for text format
+  const [roleInput, setRoleInput] = useState(''); // Role input for text format
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedFreelancerId, setSelectedFreelancerId] = useState('');
   const [message, setMessage] = useState('');
+  const [currentPage, setCurrentPage] = useState(1); // Track the current page
+  const [totalPages, setTotalPages] = useState(1); // Track total pages
   const recruiterId = localStorage.getItem('recruiterId'); // Assume recruiterId is stored in localStorage
 
   useEffect(() => {
     fetchFreelancers();
-  }, []);
+  }, [currentPage]); // Fetch freelancers when page changes
 
   const fetchFreelancers = async () => {
     try {
       const response = await fetch(
-        'http://localhost:5022/api/Recruiter/GetAllFreelancers?pageIndex=1&pageSize=10',
+        `http://localhost:5022/api/Recruiter/GetAllFreelancers?pageIndex=${currentPage}&pageSize=10`,
         {
           method: 'GET',
           headers: { Accept: 'text/plain' },
@@ -38,6 +40,7 @@ const GetAllFreelancers = () => {
         const freelancerData = data.data.result;
         setFreelancers(freelancerData);
         setFilteredFreelancers(freelancerData);
+        setTotalPages(data.data.totalPages); // Set total pages from the response
         extractFilters(freelancerData);
       } else {
         setError(data.message || 'Failed to fetch freelancers');
@@ -56,28 +59,28 @@ const GetAllFreelancers = () => {
     setRoles(uniqueRoles);
   };
 
-  const handleSkillChange = (e) => {
-    setSelectedSkill(e.target.value);
-    filterFreelancers(e.target.value, selectedRole);
-  };
-
-  const handleRoleChange = (e) => {
-    setSelectedRole(e.target.value);
-    filterFreelancers(selectedSkill, e.target.value);
+  const handleSearch = () => {
+    filterFreelancers(skillInput, roleInput);
   };
 
   const filterFreelancers = (skill, role) => {
     let filtered = freelancers;
 
     if (skill) {
-      filtered = filtered.filter((f) => f.skills.includes(skill));
+      filtered = filtered.filter((f) => f.skills.toLowerCase().includes(skill.toLowerCase()));
     }
 
     if (role) {
-      filtered = filtered.filter((f) => f.role === role);
+      filtered = filtered.filter((f) => f.role.toLowerCase().includes(role.toLowerCase()));
     }
 
     setFilteredFreelancers(filtered);
+  };
+
+  const handleCancelFilter = () => {
+    setSkillInput('');
+    setRoleInput('');
+    setFilteredFreelancers(freelancers); // Reset to show all freelancers
   };
 
   const openModal = (freelancerId) => {
@@ -119,6 +122,10 @@ const GetAllFreelancers = () => {
     }
   };
 
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber); // Change the current page
+  };
+
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">{error}</div>;
 
@@ -128,25 +135,26 @@ const GetAllFreelancers = () => {
 
       {/* Filters */}
       <div className="filters">
-        <label htmlFor="skill">Filter by Skill:</label>
-        <select id="skill" value={selectedSkill} onChange={handleSkillChange}>
-          <option value="">All Skills</option>
-          {skills.map((skill) => (
-            <option key={skill} value={skill}>
-              {skill}
-            </option>
-          ))}
-        </select>
+        <label htmlFor="skill">Search by Skill:</label>
+        <input
+          type="text"
+          id="skill"
+          value={skillInput}
+          onChange={(e) => setSkillInput(e.target.value)}
+          placeholder="Enter skill"
+        />
 
-        <label htmlFor="role">Filter by Role:</label>
-        <select id="role" value={selectedRole} onChange={handleRoleChange}>
-          <option value="">All Roles</option>
-          {roles.map((role) => (
-            <option key={role} value={role}>
-              {role}
-            </option>
-          ))}
-        </select>
+        <label htmlFor="role">Search by Role:</label>
+        <input
+          type="text"
+          id="role"
+          value={roleInput}
+          onChange={(e) => setRoleInput(e.target.value)}
+          placeholder="Enter role"
+        />
+
+        <button onClick={handleSearch}>Search</button>
+        <button onClick={handleCancelFilter}>Cancel Filter</button>
       </div>
 
       {/* Freelancer Cards */}
@@ -182,6 +190,16 @@ const GetAllFreelancers = () => {
             </button>
           </div>
         ))}
+      </div>
+
+      {/* Pagination */}
+      <div className="pagination">
+        {currentPage > 1 && (
+          <button onClick={() => handlePageChange(currentPage - 1)}>Previous</button>
+        )}
+        {currentPage < totalPages && (
+          <button onClick={() => handlePageChange(currentPage + 1)}>Next</button>
+        )}
       </div>
 
       {/* Modal */}

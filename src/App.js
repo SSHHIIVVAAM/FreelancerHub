@@ -18,6 +18,7 @@ import FreelancerProfilePage from "./components/FreelancerProfilePage/ProfilePag
 import FreelancerHomePage from "./components/FreelancerHomePage/FreelancerHomePage";
 import AppliedJobPage from "./components/AppliedJobsPage/AppliedJobsPage";
 import GetAllFreelancers from "./components/GetAllFreelancers/GetAllFreelancers";
+import ApplicationsPage from "./components/ApplicationsPage/ApplicationsPage";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/FreelancerHomePage" element={<FreelancerHomePage />} /> {/* New route */}
         <Route path="/AppliedJobPage" element={<AppliedJobPage />} /> {/* New route */}
         <Route path="/GetAllFreelancers" element={<GetAllFreelancers />} /> {/* New route */}
+        <Route path="/applications/:proposalId" element={<ApplicationsPage />} /> {/* New route */}
       </Routes>
     </Router>
   );

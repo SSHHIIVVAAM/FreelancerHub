@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./BrowseJob.css";
+import { useNavigate } from "react-router-dom";
 
 const BrowseJobsPage = () => {
   const [proposals, setProposals] = useState([]);
@@ -10,6 +11,11 @@ const BrowseJobsPage = () => {
   const [currentPage, setCurrentPage] = useState(1); // Current page for pagination
   const [totalPages, setTotalPages] = useState(1); // Total pages from API
   const recruiterId = localStorage.getItem("recruiterId");
+  const navigate = useNavigate();
+
+  const handleApplicationsClick = (proposalId) => {
+    navigate(`/applications/${proposalId}`); // Navigate to applications page with proposalId
+  };
 
   // This function is responsible for the API call
   const fetchProposals = useCallback(() => {
@@ -38,7 +44,7 @@ const BrowseJobsPage = () => {
         setError("Error fetching job proposals.");
         setIsLoading(false);
       });
-  }, [recruiterId, statusFilter, titleFilter,currentPage]); // Only depend on recruiterId for the initial API call
+  }, [recruiterId, statusFilter, titleFilter, currentPage]); // Only depend on recruiterId for the initial API call
 
   // Initial API call when the page is loaded or refreshed
   useEffect(() => {
@@ -48,7 +54,7 @@ const BrowseJobsPage = () => {
       return;
     }
     fetchProposals(); // Initial fetch based on recruiterId
-  }, [recruiterId,currentPage]); // Effect runs only once when component mounts
+  }, [recruiterId, currentPage]); // Effect runs only once when component mounts
 
   // Function to handle search when the button is clicked
   const handleSearch = () => {
@@ -113,35 +119,40 @@ const BrowseJobsPage = () => {
       });
   };
 
-    // Function to handle delete proposal
-    const handleDeleteClick = (proposalId) => {
-      // Send the DELETE request to delete the proposal
-      fetch(`http://localhost:5022/api/Recruiter/DeleteProposal?proposalId=${proposalId}`, {
+  // Function to handle delete proposal
+  const handleDeleteClick = (proposalId) => {
+    // Send the DELETE request to delete the proposal
+    fetch(
+      `http://localhost:5022/api/Recruiter/DeleteProposal?proposalId=${proposalId}`,
+      {
         method: "DELETE",
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.statusCode === 200) {
+          alert("Proposal deleted successfully!");
+          // Update the proposals list after deletion
+          setProposals((prevProposals) =>
+            prevProposals.filter(
+              (proposal) => proposal.proposalId !== proposalId
+            )
+          );
+        } else {
+          alert("Failed to delete proposal.");
+        }
       })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.statusCode === 200) {
-            alert("Proposal deleted successfully!");
-            // Update the proposals list after deletion
-            setProposals((prevProposals) =>
-              prevProposals.filter((proposal) => proposal.proposalId !== proposalId)
-            );
-          } else {
-            alert("Failed to delete proposal.");
-          }
-        })
-        .catch((error) => {
-          alert("Error deleting proposal: " + error);
-        });
-    };
-  
-// Pagination control handlers
-const handlePageChange = (pageNumber) => {
-  if (pageNumber >= 1 && pageNumber <= totalPages) {
-    setCurrentPage(pageNumber);
-  }
-};
+      .catch((error) => {
+        alert("Error deleting proposal: " + error);
+      });
+  };
+
+  // Pagination control handlers
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -149,7 +160,9 @@ const handlePageChange = (pageNumber) => {
   return (
     <div className="background-image">
       <div className="container">
-        <h1 className="browse-title text-black text-start">My Jobs Proposals</h1>
+        <h1 className="browse-title text-black text-start">
+          My Jobs Proposals
+        </h1>
 
         {/* Filter Section */}
         <div className="row filter-container align-items-center p-3">
@@ -201,7 +214,6 @@ const handlePageChange = (pageNumber) => {
                           className="img-fluid" // Make the image responsive
                           style={{ maxHeight: "210px", objectFit: "cover" }} // Ensures the image doesn't stretch
                         />
-                        
                       </div>
 
                       {/* Right Side: Job Information and Button */}
@@ -287,9 +299,11 @@ const handlePageChange = (pageNumber) => {
                               ).toLocaleDateString()}
                             </p>
                             <div className="d-flex">
-                            <button
+                              <button
                                 className="btn btn-dark custom-button"
-                                
+                                onClick={() =>
+                                  handleApplicationsClick(proposal.proposalId)
+                                }
                               >
                                 Applications
                               </button>
@@ -301,7 +315,9 @@ const handlePageChange = (pageNumber) => {
                               </button>
                               <button
                                 className="btn btn-outline-danger custom-button"
-                                onClick={() => handleDeleteClick(proposal.proposalId)}
+                                onClick={() =>
+                                  handleDeleteClick(proposal.proposalId)
+                                }
                               >
                                 Delete
                               </button>
@@ -319,33 +335,30 @@ const handlePageChange = (pageNumber) => {
 
         {/* Pagination Controls */}
         <nav aria-label="Page navigation example" className="mt-4">
-  <ul className="pagination justify-content-end">
-    
-
-    {/* Page Number Buttons */}
-    {[...Array(totalPages)].map((_, index) => (
-      <li
-        key={index + 1}
-        className={`page-item ${currentPage === index + 1 ? "active" : ""}`}
-      >
-        <button
-          className={`page-link ${currentPage === index + 1 ? "bg-dark text-white pe-3" : "bg-white text-dark pe-3"}`}
-          onClick={() => handlePageChange(index + 1)}
-          aria-label={`Page ${index + 1}`}
-        >
-          {index + 1}
-        </button>
-      </li>
-    ))}
-
-    
-  </ul>
-</nav>
-
-
-
-
-
+          <ul className="pagination justify-content-end">
+            {/* Page Number Buttons */}
+            {[...Array(totalPages)].map((_, index) => (
+              <li
+                key={index + 1}
+                className={`page-item ${
+                  currentPage === index + 1 ? "active" : ""
+                }`}
+              >
+                <button
+                  className={`page-link ${
+                    currentPage === index + 1
+                      ? "bg-dark text-white pe-3"
+                      : "bg-white text-dark pe-3"
+                  }`}
+                  onClick={() => handlePageChange(index + 1)}
+                  aria-label={`Page ${index + 1}`}
+                >
+                  {index + 1}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   );
