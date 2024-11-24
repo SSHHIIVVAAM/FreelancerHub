@@ -1,101 +1,25 @@
-/* src/components/JobForm.css */
-
-.job-form-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.5) !important; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease-in; /* Animation for overlay */
+.mainDiv{
+  background-color: #c1dde8 !important;
+  width: 100rem !important;
 }
 
-.job-form-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-20px); /* Start position for animation */
-  animation: slideIn 0.3s ease-out forwards; /* Animation for the form */
+.addMain{
+  font-weight: bold;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.btnJob{
+  gap: 10px;
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.submitJob{
+  background-color: #27b6ee;
 }
 
-.form-group {
-  margin-bottom: 15px;
-  
-}
-.form-group label{
-  color: black;
+.cancelJob{
+  background-color: #f75169;
 }
 
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold; /* Bold labels */
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s; /* Transition for border color */
-}
-
-input:focus, textarea:focus {
-  border-color: #28a745; /* Change border color on focus */
-  outline: none; /* Remove outline */
-}
-
-button {
-  background-color: #28a745; /* Green color */
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s; /* Transition for background color and scale */
-}
-
-button:hover {
-  background-color: #218838; /* Darker green on hover */
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
-button[type="button"] {
-  background-color: #dc3545; /* Red color for cancel */
-}
-
-button[type="button"]:hover {
-  background-color: #c82333; /* Darker red on hover */
-}
-
-.form-buttons {
-  display: flex;
-  justify-content: space-between; /* Space buttons evenly */
+.form-control{
+  border-width: 1px !important;
+  border-color: #f75169;
 }

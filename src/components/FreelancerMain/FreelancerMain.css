@@ -1,185 +1,23 @@
-/* Reset styles */
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
-/* Main container for the freelancer page */
-.freelancerMain1 {
-  font-family: Arial, sans-serif;
-}
-
-/* Navigation Bar Styles */
-.navbar1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+.lead{
   color: white;
 }
 
-.navbarBrand1 {
-  font-size: 24px;
-  font-weight: bold;
+.display-4{
+  color: #b5b5b5;
 }
 
-.navbarButtons1 {
-  display: flex;
+.navbar-brand{
+  color: #ffca2c !important;
 }
 
-.navButton1 {
-  background-color: transparent;
-  border: 2px solid white;
-  color: white;
-  padding: 10px 20px;
-  margin-left: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+.login{
+  border-color: #ffca2c !important;
 }
 
-.navButton1:hover {
-  background-color: white;
-  color: black;
+.btn-light{
+  background-color: #ffca2c !important;
 }
 
-/* Main Content Styles */
-.contentWrapper1 {
-  position: relative;
-}
-
-/* Background Section Styles */
-.backgroundContainer1 {
-  position: relative;
-  text-align: center;
-}
-
-.backgroundImage1 {
-  width: 100%;
-  height: auto;
-  max-height: 600px;
-  object-fit: cover;
-}
-
-.overlayContent1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.overlayContent1 h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.overlayContent1 p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.overlayButton1 {
-  padding: 12px 25px;
-  background-color: #ff5722;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.overlayButton1:hover {
-  background-color: #e64a19;
-}
-
-/* Cards Section Styles */
-.cardContainer1 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-}
-
-.card1 {
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: calc(25% - 20px);
-  margin: 10px;
-  transition: transform 0.3s;
-}
-
-.card1:hover {
-  transform: translateY(-5px);
-}
-
-.cardImage1 {
-  width: 100%;
-  height: auto;
-}
-
-.cardContent1 {
-  padding: 15px;
-}
-
-.cardContent1 h5 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.cardContent1 p {
-  font-size: 14px;
-  color: #555;
-}
-
-/* Footer Styles */
-.footer1 {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.socialIcons1 {
-  margin-top: 10px;
-}
-
-.socialIcon1 {
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
-  transition: transform 0.3s;
-}
-
-.socialIcon1:hover {
-  transform: scale(1.1);
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .cardContainer1 {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card1 {
-    width: 90%;
-  }
-
-  .overlayContent1 h1 {
-    font-size: 28px;
-  }
-
-  .overlayContent1 p {
-    font-size: 16px;
-  }
-
-  .navButton1 {
-    padding: 8px 16px;
-  }
+.connect{
+  color: #ffca2c;
 }

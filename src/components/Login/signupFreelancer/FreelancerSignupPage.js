@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./FreelancerSignupPage.css";
 
 const FreelancerSignupPage = () => {
   const [formData, setFormData] = useState({
@@ -64,116 +63,174 @@ const FreelancerSignupPage = () => {
   };
 
   return (
-    <div className="signup-page44">
-      <div className="left-section144">
-        {/* Left Section with Background Image Overlay */}
-        <div className="overlay44">
-          <h2>Join Freelancer Hub</h2>
-          <p>Find the best talent or become a part of something bigger.</p>
+    <div className="container-fluid vh-100">
+      <div className="row h-100">
+        {/* Left Section */}
+        <div className="col-md-6 d-flex align-items-center justify-content-center text-white bg-success">
+          <div className="text-center">
+            <h1 className="display-4">Join Freelancer Hub</h1>
+            <p className="lead">
+              Find the best talent or become a part of something bigger.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="right-section44">
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group44">
-            <label>Profile Picture:</label>
-            <input type="file" onChange={handleFileChange} required />
+        {/* Right Section */}
+        <div className="col-md-6 d-flex align-items-center">
+          <div className="container">
+            <h1 className="text-center mb-4 text-success">Sign Up</h1>
+            <form onSubmit={handleSubmit}>
+              {/* Profile Picture */}
+              <div className="mb-3">
+                <label htmlFor="profilePic" className="form-label">
+                  Profile Picture
+                </label>
+                <input
+                  type="file"
+                  className="form-control"
+                  id="profilePic"
+                  onChange={handleFileChange}
+                  required
+                />
+              </div>
+
+              {/* Recruiter Name */}
+              <div className="mb-3">
+                <label htmlFor="recruiterName" className="form-label">
+                  Recruiter Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="recruiterName"
+                  name="recruiterName"
+                  value={formData.recruiterName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              {/* Password */}
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              {/* Date of Birth */}
+              <div className="mb-3">
+                <label htmlFor="dob" className="form-label">
+                  Date of Birth
+                </label>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="dob"
+                  name="dob"
+                  value={formData.dob}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              {/* Email */}
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              {/* Phone Number */}
+              <div className="mb-3">
+                <label htmlFor="phoneNumber" className="form-label">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  className="form-control"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              {/* Company Name */}
+              <div className="mb-3">
+                <label htmlFor="companyName" className="form-label">
+                  Company Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="companyName"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              {/* Company Address */}
+              <div className="mb-3">
+                <label htmlFor="companyAddress" className="form-label">
+                  Company Address
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="companyAddress"
+                  name="companyAddress"
+                  value={formData.companyAddress}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              {/* About Company */}
+              <div className="mb-3">
+                <label htmlFor="aboutCompany" className="form-label">
+                  About Company
+                </label>
+                <textarea
+                  className="form-control"
+                  id="aboutCompany"
+                  name="aboutCompany"
+                  rows="3"
+                  value={formData.aboutCompany}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button type="submit" className="btn btn-success w-100">
+                Sign Up
+              </button>
+            </form>
+
+            {error && <p className="text-danger mt-3">{error}</p>}
           </div>
-
-          <div className="form-wrapper44">
-            <div className="form-group44">
-              <label>Recruiter Name:</label>
-              <input
-                type="text"
-                name="recruiterName"
-                value={formData.recruiterName}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group44">
-              <label>Password:</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group44">
-              <label>Date of Birth:</label>
-              <input
-                type="date"
-                name="dob"
-                value={formData.dob}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group44">
-              <label>Email:</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group44">
-              <label>Phone Number:</label>
-              <input
-                type="tel"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group44">
-              <label>Company Name:</label>
-              <input
-                type="text"
-                name="companyName"
-                value={formData.companyName}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group44">
-              <label>Company Address:</label>
-              <input
-                type="text"
-                name="companyAddress"
-                value={formData.companyAddress}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-          </div>
-
-          <div className="form-group44">
-            <label>About Company:</label>
-            <textarea
-              name="aboutCompany"
-              value={formData.aboutCompany}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <button className="btn144" type="submit">Sign Up</button>
-        </form>
-
-        {error && <p className="error-message44">{error}</p>}
+        </div>
       </div>
     </div>
   );

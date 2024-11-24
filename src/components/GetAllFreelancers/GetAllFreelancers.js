@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from "react";
-import "./GetAllFreelancers.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./GetAllFreelancers.css"
 
 const GetAllFreelancers = () => {
   const [freelancers, setFreelancers] = useState([]);
   const [filteredFreelancers, setFilteredFreelancers] = useState([]);
   const [skills, setSkills] = useState([]);
   const [roles, setRoles] = useState([]);
-  const [skillInput, setSkillInput] = useState(""); // Skill input for text format
-  const [roleInput, setRoleInput] = useState(""); // Role input for text format
+  const [skillInput, setSkillInput] = useState("");
+  const [roleInput, setRoleInput] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedFreelancerId, setSelectedFreelancerId] = useState("");
   const [message, setMessage] = useState("");
-  const [currentPage, setCurrentPage] = useState(1); // Track the current page
-  const [totalPages, setTotalPages] = useState(1); // Track total pages
-  const recruiterId = localStorage.getItem("recruiterId"); // Assume recruiterId is stored in localStorage
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const recruiterId = localStorage.getItem("recruiterId");
 
   useEffect(() => {
     fetchFreelancers();
-  }, []); // Fetch freelancers only once on mount
+  }, []);
 
   const fetchFreelancers = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5022/api/Recruiter/GetAllFreelancers?pageIndex=1&pageSize=1000`, // Fetch all records initially
+        `http://localhost:5022/api/Recruiter/GetAllFreelancers?pageIndex=1&pageSize=1000`,
         {
           method: "GET",
           headers: { Accept: "text/plain" },
@@ -39,8 +40,8 @@ const GetAllFreelancers = () => {
       if (data.statusCode === 200) {
         const freelancerData = data.data.result;
         setFreelancers(freelancerData);
-        setFilteredFreelancers(freelancerData); // Set all freelancers as filtered initially
-        setTotalPages(Math.ceil(freelancerData.length / 10)); // Set total pages based on the total freelancer count
+        setFilteredFreelancers(freelancerData);
+        setTotalPages(Math.ceil(freelancerData.length / 10));
         extractFilters(freelancerData);
       } else {
         setError(data.message || "Failed to fetch freelancers");
@@ -80,17 +81,17 @@ const GetAllFreelancers = () => {
       );
     }
 
-    setFilteredFreelancers(filtered); // Apply filter to all freelancers
-    setTotalPages(Math.ceil(filtered.length / 10)); // Recalculate total pages after filtering
-    setCurrentPage(1); // Reset to the first page after filtering
+    setFilteredFreelancers(filtered);
+    setTotalPages(Math.ceil(filtered.length / 10));
+    setCurrentPage(1);
   };
 
   const handleCancelFilter = () => {
     setSkillInput("");
     setRoleInput("");
-    setFilteredFreelancers(freelancers); // Reset to show all freelancers
-    setTotalPages(Math.ceil(freelancers.length / 10)); // Reset total pages
-    setCurrentPage(1); // Reset to the first page after cancelling filters
+    setFilteredFreelancers(freelancers);
+    setTotalPages(Math.ceil(freelancers.length / 10));
+    setCurrentPage(1);
   };
 
   const openModal = (freelancerId) => {
@@ -135,95 +136,109 @@ const GetAllFreelancers = () => {
   };
 
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber); // Change the current page
+    setCurrentPage(pageNumber);
   };
 
-  // Function to display freelancers for the current page
   const paginateFreelancers = (freelancers) => {
     const start = (currentPage - 1) * 10;
     const end = start + 10;
     return freelancers.slice(start, end);
   };
 
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">{error}</div>;
+  if (loading) return <div className="text-center mt-5">Loading...</div>;
+  if (error) return <div className="alert alert-danger">{error}</div>;
 
   return (
-    <div className="freelancers-container">
-      <h1>Freelancers List</h1>
+    <div className="container mt-5">
+      <h1 className="text-center mb-4">Freelancers List</h1>
 
       {/* Filters */}
-      <div className="filters">
-        <label htmlFor="skill">Search by Skill:</label>
-        <input
-          type="text"
-          id="skill"
-          value={skillInput}
-          onChange={(e) => setSkillInput(e.target.value)}
-          placeholder="Enter skill"
-        />
+      <div className="row mb-3">
+  <div className="col-md-4">
+    <input
+      type="text"
+      className="form-control"
+      placeholder="Search by skill"
+      value={skillInput}
+      onChange={(e) => setSkillInput(e.target.value)}
+    />
+  </div>
+  <div className="col-md-4">
+    <input
+      type="text"
+      className="form-control"
+      placeholder="Search by role"
+      value={roleInput}
+      onChange={(e) => setRoleInput(e.target.value)}
+    />
+  </div>
+  <div className="col-md-4 d-flex align-items-center">
+    <button className="btn btn-primary me-2" onClick={handleSearch}>
+      Search
+    </button>
+    <button className="btn btn-secondary" onClick={handleCancelFilter}>
+      Reset
+    </button>
+  </div>
+</div>
 
-        <label htmlFor="role">Search by Role:</label>
-        <input
-          type="text"
-          id="role"
-          value={roleInput}
-          onChange={(e) => setRoleInput(e.target.value)}
-          placeholder="Enter role"
-        />
-
-        <button onClick={handleSearch}>Search</button>
-        <button onClick={handleCancelFilter}>Cancel Filter</button>
-      </div>
 
       {/* Freelancer Cards */}
-      <div className="freelancers-list">
+      <div className="row">
         {paginateFreelancers(filteredFreelancers).map((freelancer) => (
-          <div key={freelancer.freelancerId} className="freelancer-card">
-            <img
-              src={freelancer.profilePicUrl}
-              alt={freelancer.freelancerName}
-              className="profile-pic"
-            />
-            <h2>{freelancer.freelancerName}</h2>
-            <p>
-              <strong>Role:</strong> {freelancer.role}
-            </p>
-            <p>
-              <strong>Skills:</strong> {freelancer.skills}
-            </p>
-            <p>
-              <strong>Email:</strong> {freelancer.email}
-            </p>
-            <p>
-              <strong>Phone:</strong> {freelancer.phoneNumber}
-            </p>
-            <p>
-              <strong>DOB:</strong> {new Date(freelancer.dob).toDateString()}
-            </p>
-            <button
-              className="interested-button"
+          <div key={freelancer.freelancerId} className="col-md-4 mb-4">
+            <div className="card text-center">
+              <img
+                src={freelancer.profilePicUrl}
+                alt={freelancer.freelancerName}
+                className="card-img-top rounded-circle mx-auto mt-3"
+                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{freelancer.freelancerName}</h5>
+                <p className="card-text">
+                  <strong>Role:</strong> {freelancer.role}
+                  <br />
+                  <strong>Skills:</strong> {freelancer.skills}
+                </p>
+                <button
+              className="interested-button btn btn-primary"
               onClick={() => openModal(freelancer.freelancerId)}
             >
               Interested
             </button>
+                
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Pagination */}
-      <div className="pagination">
-        {currentPage > 1 && (
-          <button onClick={() => handlePageChange(currentPage - 1)}>
-            Previous
-          </button>
-        )}
-        {currentPage < totalPages && (
-          <button onClick={() => handlePageChange(currentPage + 1)}>
-            Next
-          </button>
-        )}
-      </div>
+      <nav className="mt-4">
+        <ul className="pagination justify-content-center">
+          {currentPage > 1 && (
+            <li className="page-item">
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(currentPage - 1)}
+              >
+                Previous
+              </button>
+            </li>
+          )}
+          {currentPage < totalPages && (
+            <li className="page-item">
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(currentPage + 1)}
+              >
+                Next
+              </button>
+            </li>
+          )}
+        </ul>
+      </nav>
 
       {/* Modal */}
       {isModalOpen && (

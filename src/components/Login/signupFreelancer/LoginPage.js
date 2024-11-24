@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // For navigation
-import "./FreelancerLoginPage.css"; // Import CSS for styling
 
 const FreelancerLoginPage = () => {
   const [email, setEmail] = useState(""); // State for email
@@ -41,43 +40,74 @@ const FreelancerLoginPage = () => {
   };
 
   return (
-    <div className="login-page33">
-      {/* Left Section */}
-      <div className="left-section33 animate-slide-in-left33">
-        <h1>Welcome to Recruiter Hub</h1>
-        <p>Discover freelance opportunities and connect with top recruiters.</p>
-      </div>
+    <div className="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
+      <div className="row shadow-lg bg-white rounded w-75">
+        {/* Left Section */}
+        <div className="col-lg-6 d-flex flex-column justify-content-center align-items-center text-center p-4 bg-primary text-white">
+          <h1 className="mb-4">Welcome to Recruiter Hub</h1>
+          <p>Discover freelance opportunities and connect with top recruiters.</p>
+        </div>
 
-      {/* Right Section - Login Form */}
-      <div className="right-section33 animate-fade-in33">
-        <div className="login-container33">
-          <h2 className="animate-slide-in-top33">Recruiter Login</h2>
+        {/* Right Section */}
+        <div className="col-lg-6 p-5">
+          <h2 className="text-center mb-4">Recruiter Login</h2>
           <form onSubmit={handleSubmit}>
-            <div className="form-group33">
-              <label>Email:</label>
+            {/* Email Field */}
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Email
+              </label>
               <input
                 type="email"
+                id="email"
+                className="form-control"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-            <div className="form-group33">
-              <label>Password:</label>
+
+            {/* Password Field */}
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
               <input
                 type="password"
+                id="password"
+                className="form-control"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            <button type="submit">Login</button>
+
+            {/* Submit Button */}
+            <button type="submit" className="btn btn-primary w-100 mb-3">
+              Login
+            </button>
           </form>
 
+          {/* Forgot Password Link */}
+          <div className="text-center">
+            <a
+              href="/forgot-password" // Navigate to Forgot Password page
+              className="text-decoration-none text-primary"
+            >
+              Forgot Password?
+            </a>
+          </div>
+
+          {/* Error Message */}
           {errorMessage && (
-            <div className="error-popup33 animate-bounce-in33">
-              <p>{errorMessage}</p>
-              <button onClick={() => setErrorMessage(null)}>Close</button>
+            <div className="alert alert-danger mt-3" role="alert">
+              {errorMessage}
+              <button
+                type="button"
+                className="btn-close ms-2"
+                aria-label="Close"
+                onClick={() => setErrorMessage(null)}
+              ></button>
             </div>
           )}
         </div>

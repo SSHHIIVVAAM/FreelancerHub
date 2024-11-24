@@ -1,183 +1,68 @@
-/* General styles */
-.main-container255 {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  overflow-x: hidden;
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
+.footer{
+  background-color: #bc9b88 !important;
 }
 
-/* Navbar styles */
-.navbar255 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: #333;
-  color: #fff;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  animation: slideDown 1s ease forwards;
+.ful{
+  background-color: #ffffff !important;
 }
 
-.navbar-logo255 {
-  font-size: 1.5rem;
-  font-weight: bold;
+.welcome{
+  color: #27b6ee !important;
+  font-weight: bolder;
 }
 
-.navbar-links255 li {
-  display: inline;
-  margin-left:65rem;
-  cursor: pointer;
-  font-weight: bold;
-  color: #f0f0f0;
-  margin-top: 10px;
+.hub{
+  color: #ffca2c;
 }
 
-.add-job-button255 {
-  padding: 8px 16px;
-  background-color: #1e90ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 100px;
+.navbar{
+  background-color: #2d1f42 !important;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
-.add-job-button255:hover {
-  background-color: #00bfff;
+.recruiterMain{
+  font-weight: bolder;
 }
 
-/* Hero section styles */
-.hero-section255 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px;
-  animation: slideUp 1s ease forwards;
-}
-
-.hero-content255 {
-  flex: 1;
-  max-width: 600px;
-}
-
-.hero-content255 h1 {
-  font-size: 2.5rem;
-  color: #1e90ff;
-}
-
-.hero-content255 p {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: #555;
-  margin: 20px 0;
-}
-
-.hero-buttons255 .btn {
-  padding: 10px 20px;
-  margin-right: 10px;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #00bfff;
-  width: 18rem;
-}
-
-.btn-primary255 {
-  background-color: #1e90ff;
-  color: #fff;
-  border: none;
-  transition: background-color 0.3s;
-}
-
-.btn-primary255:hover {
-  background-color: #00bfff;
-}
-
-.btn-outline-secondary255 {
-  background-color: #fff;
-  color: #1e90ff;
-  border: 2px solid #1e90ff;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-outline-secondary255:hover {
-  background-color: #1e90ff;
-  color: #fff;
-}
-
-.hero-image255 img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-  animation: fadeInImage 1.5s ease-in;
-}
-
-.bttn255 {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.bttn255:hover {
-  background-color: #444;
-}
-
-/* Footer styles */
-.footer255 {
-  text-align: center;
-  padding: 15px 0;
-  background-color: #333;
-  color: #fff;
-  margin-top: auto;
-}
-
-.social-icons255 {
-  display: flex;
+.lead{
+  color: #f85069;
+  font-size: 20px;
+  font-weight: 500;
   justify-content: center;
-  margin-top: 10px;
+  margin-left: 100px;
 }
 
-.social-icons255 svg {
-  color: #1e90ff;
-  margin: 0 10px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.3s;
+.footerMain{
+  background-color: #2d1f42 !important;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
-.social-icons255 svg:hover {
-  color: #00bfff;
+.footerMain1{
+  background-color: #c1dde8 !important;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.iconMain{
+  color: #f85069;
 }
 
-@keyframes slideDown {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.followMain{
+  color: #f85069;
+  font-weight: 800;
 }
 
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.btnMain{
+  gap: 10px;
 }
 
-@keyframes fadeInImage {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+.profileMain{
+  background-color: #ffca2c;
+  font-weight: 800;
+  color: #f55265;
+  border-color: #f55265;
+}
+
+.browseMain{
+  background-color: #27b6ee !important;
 }

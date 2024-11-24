@@ -1,50 +1,57 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./FreelancerMain.css";
-import BackgroundImage from "../../assets/MainScreenBackground.jpg";
+import BackgroundImage from "../../assets/freelancer-home-image.jpg";
 import CardImage from "../../assets/Signup2.jpg"; // Placeholder image for cards
+import "./FreelancerMain.css";
 
 const FreelancerMain = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="freelancerMain1">
-      {/* Navigation Bar */}
-      <div className="navbar1">
-        <div className="navbarBrand1">Recruiter HUB</div>
-        <div className="navbarButtons1">
-          <button
-            onClick={() => navigate("/freelancer-login")}
-            className="navButton1"
-          >
-            Login
-          </button>
-          <button
-            onClick={() => navigate("/freelancer-signup")}
-            className="navButton1"
-          >
-            Get Started
-          </button>
+    <div className="freelancer-main">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+        <div className="container-fluid">
+          <span className="navbar-brand fw-bold">Recruiter HUB</span>
+          <div className="d-flex align-items-center">
+            <button
+              onClick={() => navigate("/freelancer-login")}
+              className="btn btn-outline-light me-2 login"
+            >
+              Login
+            </button>
+            <button
+              onClick={() => navigate("/freelancer-signup")}
+              className="btn btn-light"
+            >
+              Get Started
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
 
       {/* Main Content */}
-      <div className="contentWrapper1">
+      <div className="position-relative">
         {/* Background Section */}
-        <div className="backgroundContainer1">
+        <div className="position-relative text-center">
           <img
             src={BackgroundImage}
             alt="Background"
-            className="backgroundImage1"
+            className="img-fluid w-100"
+            style={{ maxHeight: "600px", objectFit: "cover" }}
           />
-          <div className="overlayContent1">
-            <h1>Explore Exciting Projects</h1>
-            <p>
+          <div
+            className="position-absolute top-50 start-50 translate-middle text-white text-center"
+            style={{
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+            }}
+          >
+            <h1 className="display-4 fw-bold">Explore Exciting Projects</h1>
+            <p className="lead mb-4">
               Connect with recruiters, showcase your talent, and discover your
               next big opportunity.
             </p>
             <button
-              className="overlayButton1"
+              className="btn btn-warning btn-lg"
               onClick={() => navigate("/freelancer-signup")}
             >
               Get Started
@@ -52,51 +59,59 @@ const FreelancerMain = () => {
           </div>
         </div>
 
-        {/* Cards Section */}
-        <div className="cardContainer1">
-          {[1, 2, 3, 4].map((item) => (
-            <div className="card1" key={item}>
-              <img
-                src={CardImage}
-                alt={`Card ${item}`}
-                className="cardImage1"
-              />
-              <div className="cardContent1">
-                <h5>Project {item}</h5>
-                <p>
-                  Discover amazing freelance opportunities and showcase your
-                  skills.
-                </p>
+        {/* Cards Section
+        <div className="container py-5">
+          <div className="row g-4">
+            {[1, 2, 3, 4].map((item) => (
+              <div className="col-md-3" key={item}>
+                <div className="card shadow-sm h-100">
+                  <img
+                    src={CardImage}
+                    alt={`Card ${item}`}
+                    className="card-img-top"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">Project {item}</h5>
+                    <p className="card-text text-muted">
+                      Discover amazing freelance opportunities and showcase your
+                      skills.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </div> */}
       </div>
 
       {/* Footer Section */}
-      <footer className="footer1">
-        <p>Connect with us on social media</p>
-        <div className="socialIcons1">
+      <footer className="bg-dark text-white text-center py-3">
+        <p className="connect mb-2">Connect with us on social media</p>
+        <div>
           <a
             href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
+            className="me-3"
           >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
               alt="Instagram"
-              className="socialIcon1"
+              className="img-fluid"
+              style={{ width: "30px" }}
             />
           </a>
           <a
             href="https://www.whatsapp.com"
             target="_blank"
             rel="noopener noreferrer"
+            className="me-3"
           >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
               alt="WhatsApp"
-              className="socialIcon1"
+              className="img-fluid"
+              style={{ width: "30px" }}
             />
           </a>
           <a
@@ -107,7 +122,8 @@ const FreelancerMain = () => {
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
               alt="Facebook"
-              className="socialIcon1"
+              className="img-fluid"
+              style={{ width: "30px" }}
             />
           </a>
         </div>
