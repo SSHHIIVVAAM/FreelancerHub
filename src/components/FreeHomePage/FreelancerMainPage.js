@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import JobForm from "../JobForm/JobForm";
 import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
-import CardImage from "../../assets/freelancer-image-home.jpg";
+import CardImage from "../../assets/recruiter/desktop.webp";
+import rocket from "../../assets/recruiter/rocket.svg";
 import "./FreelancerMainPage.css";
 
 const FreelancerMainPage = () => {
@@ -31,11 +32,11 @@ const FreelancerMainPage = () => {
   };
 
   return (
-    <div className="container-fluid bg-light min-vh-100 d-flex flex-column ">
+    <div className="container-fluid bg-light min-vh-100 d-flex flex-column p-0">
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5">
         <a className="navbar-brand recruiterMain" link="#">
-          Recruiter Hub
+          RecruiterHub
         </a>
         <button
           className="navbar-toggler"
@@ -76,39 +77,46 @@ const FreelancerMainPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <div className="container my-5 ful">
-        <div className="row align-items-center">
-          <div className="col-md-6 text-center text-md-start">
-            <h1 className="display-4 text-primary welcome">
-              Welcome to Recruiter <span className="hub">HUB</span> 
-            </h1>
-            <p className="lead">
-              Discover talented freelancers for your projects.
-            </p>
-            <div className="d-flex justify-content-center justify-content-md-start">
-              <button className="btn btn-primary me-3 browseMain" onClick={goToBrowseJob}>
-                Browse Jobs
-              </button>
-              <button
-                className="btn btn-outline-secondary"
-                onClick={toggleJobForm}
-              >
-                Post a Job
-              </button>
-            </div>
-          </div>
-          <div className="col-md-6 text-center mt-4 mt-md-0">
-            <img
-              src={CardImage}
-              alt="Freelancer working"
-              className="img-fluid rounded shadow"
-            />
-            <button className="btn btn-dark mt-3 profileMain" onClick={goToProfilePage}>
-              Go to Profile
-            </button>
-          </div>
-        </div>
+      <div className="container-fluid px-md-5 py-5">
+  <div className="row justify-content-center align-items-center">
+    {/* Content Column */}
+    <div className="col-md-7 text-center">
+      <h1 className="display-4 fw-bold lh-1 mb-3" style={{ fontSize: "2.5rem" }}>
+        <span style={{ color: "#0EA5E9", fontSize: "inherit" }}>RecruiterHub</span> - Discover Talented<br /> Freelancers<br />
+        <img src={rocket} alt="Icon" width="80" height="80" />
+      </h1>
+      <p className="text-muted fs-5" style={{ fontWeight: "600" }}>
+        Find the best <span className="text-dark fw-bold">freelancers</span> from <span className="text-dark fw-bold">RecruiterHub</span>.
+      </p>
+      <div className="d-flex justify-content-center">
+        <button className="btn btn-dark btn-sm w-auto me-3" style={{ fontSize: "1.3rem" }} onClick={goToBrowseJob}>
+          Browse Jobs <i className="bi bi-arrow-right text-white ms-2"></i>
+        </button>
+        <button
+          className="btn btn-outline-secondary btn-sm w-auto"
+          style={{ fontSize: "1.3rem" }}
+          onClick={toggleJobForm}
+        >
+          Post a Job
+        </button>
       </div>
+    </div>
+
+    {/* Image Column */}
+    <div className="col-md-5 text-center mt-4 mt-md-0">
+      <img
+        src={CardImage}
+        alt="Freelancer working"
+        className="img-fluid"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+      <button className="btn btn-dark mt-3" style={{ fontSize: "1.3rem" }} onClick={goToProfilePage}>
+        Go to Profile
+      </button>
+    </div>
+  </div>
+</div>
+
 
       {/* Job Form */}
       {isJobFormVisible && <JobForm onClose={toggleJobForm} />}

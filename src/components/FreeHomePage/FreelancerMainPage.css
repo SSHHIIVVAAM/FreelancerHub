@@ -15,10 +15,11 @@
   color: #ffca2c;
 }
 
+.navbar-brand{
+  color:#fff !important;
+}
 .navbar{
-  background-color: #2d1f42 !important;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  background-color: #000 !important;
 }
 
 .recruiterMain{
