@@ -1,116 +1,36 @@
-/* Main Signup Page Container */
-.signup-page44 {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  font-family: 'Arial', sans-serif;
+.leadSignup{
+  margin-left: 0px;
 }
 
-/* Left Section with Background Image */
-.left-section144 {
-  width: 100%;
-  /* background-image: url(../../../assets/BackGroundSign.jpg); */
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  background-color: #3ab299;
+.MainSign{
+  background-color: #27b6ee !important;
 }
 
-/* Overlay Text on Image */
-.overlay44 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+.joinSign{
+  margin-right: 100px !important;
+}
+
+.joinSign p {
   color: white;
 }
 
-.overlay44 h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
 
-.overlay44 p {
-  font-size: 1.2rem;
-}
-
-/* Right Section (Signup Form) */
-.right-section44 {
-  width: 50%;
-  padding: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: white;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-  background-image: url(/src//assets/profilebg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-h1 {
-  margin-bottom: 30px;
-  font-size: 2rem;
-  color: #3ab299;
-}
-
-/* Form Styling */
-.form-wrapper44 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.form-group44 {
-  margin-bottom: 15px;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #28a745;
-}
-
-.btn144 {
-  width: 100%;
-  padding: 12px;
-  background-color: #3ab299;
+.joinSign h1 {
   color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: 200;
 }
 
-button:hover {
-  background-color: #3ab299;
-}
-
-/* Error Message */
-.error-message44 {
-  color: red;
+.rock{
   margin-top: 10px;
+  margin-left: 300px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .signup-page44 {
-    flex-direction: column;
-  }
+.signh1{
+  color: #27b6ee;
+}
 
-  .left-section44,
-  .right-section44 {
-    width: 100%;
-    height: 50%;
-  }
+.btnsign1{
+  background-color: #27b6ee !important;
+  color: white !important;
+  font-weight: 400 !important;
 }

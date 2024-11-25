@@ -67,3 +67,31 @@
 .browseMain{
   background-color: #27b6ee !important;
 }
+
+footer h5,
+footer h6 {
+  font-weight: bold !important;
+}
+
+footer p {
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+}
+
+footer a {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+}
+
+footer .d-flex a {
+  transition: transform 0.2s ease !important;
+}
+
+footer .d-flex a:hover {
+  transform: scale(1.2) !important;
+}
+
+.logoMain{
+  font-weight: bolder;
+  font-size:x-large;
+}

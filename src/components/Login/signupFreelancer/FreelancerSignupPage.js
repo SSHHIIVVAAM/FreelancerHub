@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./FreelancerSignupPage.css"
+import rocket from "../../../assets/recruiter/rocket.svg";
 
 const FreelancerSignupPage = () => {
   const [formData, setFormData] = useState({
@@ -63,22 +65,23 @@ const FreelancerSignupPage = () => {
   };
 
   return (
-    <div className="container-fluid vh-100">
+    <div className="container-fluid vh-100 ">
       <div className="row h-100">
         {/* Left Section */}
-        <div className="col-md-6 d-flex align-items-center justify-content-center text-white bg-success">
-          <div className="text-center">
-            <h1 className="display-4">Join Freelancer Hub</h1>
-            <p className="lead">
+        <div className="col-md-6 d-flex align-items-center justify-content-center text-white MainSign">
+          <div className="joinSign">
+          <img src={rocket} alt="Icon" width="80" height="80" className="rock" />
+            <h1 className="display-4">Join Recruiter Hub</h1>
+            <p className="lead leadSignup leadSign">
               Find the best talent or become a part of something bigger.
             </p>
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="col-md-6 d-flex align-items-center">
+        <div className="col-md-6 d-flex align-items-center ">
           <div className="container">
-            <h1 className="text-center mb-4 text-success">Sign Up</h1>
+            <h1 className="text-center mb-4 signh1">Sign Up</h1>
             <form onSubmit={handleSubmit}>
               {/* Profile Picture */}
               <div className="mb-3">
@@ -223,7 +226,7 @@ const FreelancerSignupPage = () => {
               </div>
 
               {/* Submit Button */}
-              <button type="submit" className="btn btn-success w-100">
+              <button type="submit" className="btn w-100 btnsign1">
                 Sign Up
               </button>
             </form>

@@ -1,147 +1,88 @@
-/* General styling for the login page */
-.login-page33 {
-  display: flex;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #1e90ff, #00bfff);
+.loginleft{
+  background-color: #0ea5e9 ;
 }
 
-.left-section33 {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  background-color: #1e90ff;
+.loginbtn{
+  background-color: #0ea5e9 !important;
+  font-weight: 400 !important;
+  color: #fff !important;
 }
 
-.left-section33 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  animation: fadeIn 1.5s ease-in-out;
+
+.reclogin{
+  color: #0ea5e9;
+  font-weight: 800;
 }
 
-.left-section33 p {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  max-width: 400px;
-  animation: fadeIn 2s ease-in-out;
+.forgotPass{
+  color: #0ea5e9;
+  font-weight: 500;
 }
 
-.right-section33 {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  padding: 20px;
-  position: relative;
-  background-image: url(/src//assets/profilebg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.login-container33 {
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  background-color: #f7f7f7;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.login-container33 h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-  font-size: 1.8rem;
-}
-
-.form-group33 {
-  margin-bottom: 15px;
-}
-
-.form-group33 label {
-  display: block;
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.form-group33 input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #1e90ff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-  background-color: #00bfff;
-}
-
-/* Error popup styling */
-.error-popup33 {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #ffdddd;
-  border: 1px solid #ff5e5e;
-  border-radius: 5px;
-  text-align: center;
-  color: #ff3333;
-}
-
-/* Animations */
+/* Fade-in animation for page load */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideInLeft {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-@keyframes slideInTop {
-  from { transform: translateY(-100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-@keyframes bounceIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  60% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); }
+.container-fluid {
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* Applying animations */
-.animate-slide-in-left33 {
-  animation: slideInLeft 1s ease-out;
+.loginleft {
+  animation: slideInLeft 1s ease;
 }
 
-.animate-fade-in33 {
-  animation: fadeIn 1.5s ease-in;
+.reclogin {
+  animation: slideInRight 1s ease-in-out;
 }
 
-.animate-slide-in-top33 {
-  animation: slideInTop 1s ease-out;
+.loginbtn {
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.animate-bounce-in33 {
-  animation: bounceIn 0.6s ease-out;
+.loginbtn:hover {
+  transform: scale(1.05);
+  background-color: #007acc !important;
+}
+
+.forgotPass {
+  transition: color 0.3s ease;
+}
+
+.forgotPass:hover {
+  color: #004a7c;
+  text-decoration: underline;
+}
+
+.alert {
+  animation: fadeIn 0.5s ease-in-out;
 }

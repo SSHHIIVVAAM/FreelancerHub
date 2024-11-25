@@ -21,3 +21,59 @@
 .connect{
   color: #ffca2c;
 }
+
+/* Fade-in animation for page load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.freelancer-main {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.navbar {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.hero-section {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+footer {
+  animation: fadeIn 2s ease-in-out;
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background-color: #e6b800 !important;
+}
+
+.iconMain a {
+  transition: transform 0.3s ease;
+}
+
+.iconMain a:hover {
+  transform: scale(1.2);
+}

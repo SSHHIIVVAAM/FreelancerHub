@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // For navigation
+import "./FreelancerLoginPage.css";
 
 const FreelancerLoginPage = () => {
   const [email, setEmail] = useState(""); // State for email
   const [password, setPassword] = useState(""); // State for password
   const [errorMessage, setErrorMessage] = useState(null); // Error message state
+  const [pageLoaded, setPageLoaded] = useState(false); // Animation state
   const navigate = useNavigate(); // Hook for navigation
+
+  useEffect(() => {
+    setPageLoaded(true); // Trigger animation on page load
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -40,17 +46,21 @@ const FreelancerLoginPage = () => {
   };
 
   return (
-    <div className="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div
+      className={`container-fluid vh-100 d-flex align-items-center justify-content-center bg-light ${
+        pageLoaded ? "fade-in" : ""
+      }`}
+    >
       <div className="row shadow-lg bg-white rounded w-75">
         {/* Left Section */}
-        <div className="col-lg-6 d-flex flex-column justify-content-center align-items-center text-center p-4 bg-primary text-white">
+        <div className="col-lg-6 d-flex flex-column justify-content-center align-items-center text-center p-4 text-white loginleft">
           <h1 className="mb-4">Welcome to Recruiter Hub</h1>
           <p>Discover freelance opportunities and connect with top recruiters.</p>
         </div>
 
         {/* Right Section */}
         <div className="col-lg-6 p-5">
-          <h2 className="text-center mb-4">Recruiter Login</h2>
+          <h2 className="text-center mb-4 reclogin">Recruiter Login</h2>
           <form onSubmit={handleSubmit}>
             {/* Email Field */}
             <div className="mb-3">
@@ -83,7 +93,7 @@ const FreelancerLoginPage = () => {
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="btn btn-primary w-100 mb-3">
+            <button type="submit" className="btn w-100 mb-3 loginbtn">
               Login
             </button>
           </form>
@@ -92,7 +102,7 @@ const FreelancerLoginPage = () => {
           <div className="text-center">
             <a
               href="/forgot-password" // Navigate to Forgot Password page
-              className="text-decoration-none text-primary"
+              className="text-decoration-none forgotPass"
             >
               Forgot Password?
             </a>
