@@ -16,7 +16,7 @@ const GetAllFreelancers = () => {
   const [message, setMessage] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [pageSize] = useState(2);
+  const [pageSize] = useState(6);
   const recruiterId = localStorage.getItem("recruiterId");
 
   useEffect(() => {

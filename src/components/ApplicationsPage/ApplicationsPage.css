@@ -1,7 +1,26 @@
-.appback{
-  background-image: url(../../assets/profilebg.png);
+
+.background-image {
+  background-image: url('../../assets/Common//bgclean.jpg'); /* Ensure the path is correct */
   background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-attachment: fixed; /* Fix the background */
+  background-position: center; /* Center the background image */
+  min-height: 100vh;
+  padding: 30px 0;
+  filter: brightness(1);
+  position: relative;
+  z-index: 0; /* Set z-index for background */
+  overflow: hidden; /* Ensure background doesn’t scroll */
+}
+
+.custom-card {
+  width: 100% !important; 
+  max-width: 600px !important;
+  margin: 0 !important;
+  background-color: #ffff !important;
+}
+
+.card-body .row .col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
