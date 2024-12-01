@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./GetAllFreelancers.css"
+import "./GetAllFreelancers.css";
 
 const GetAllFreelancers = () => {
   const [freelancers, setFreelancers] = useState([]);
@@ -149,40 +149,38 @@ const GetAllFreelancers = () => {
   if (error) return <div className="alert alert-danger">{error}</div>;
 
   return (
-    <div className="background-image">
-        <div className="container mt-5">
+    <div className="container mt-5">
       <h1 className="text-center mb-4">Freelancers List</h1>
 
       {/* Filters */}
       <div className="row mb-3">
-  <div className="col-md-4">
-    <input
-      type="text"
-      className="form-control"
-      placeholder="Search by skill"
-      value={skillInput}
-      onChange={(e) => setSkillInput(e.target.value)}
-    />
-  </div>
-  <div className="col-md-4">
-    <input
-      type="text"
-      className="form-control"
-      placeholder="Search by role"
-      value={roleInput}
-      onChange={(e) => setRoleInput(e.target.value)}
-    />
-  </div>
-  <div className="col-md-4 d-flex align-items-center">
-    <button className="btn btn-primary me-3" onClick={handleSearch}>
-      Search
-    </button>
-    <button className="btn btn-outline-dark" onClick={handleCancelFilter}>
-      Reset
-    </button>
-  </div>
-</div>
-
+        <div className="col-md-4">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search by skill"
+            value={skillInput}
+            onChange={(e) => setSkillInput(e.target.value)}
+          />
+        </div>
+        <div className="col-md-4">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search by role"
+            value={roleInput}
+            onChange={(e) => setRoleInput(e.target.value)}
+          />
+        </div>
+        <div className="col-md-4 d-flex align-items-center">
+          <button className="btn btn-primary me-3" onClick={handleSearch}>
+            Search
+          </button>
+          <button className="btn btn-outline-dark" onClick={handleCancelFilter}>
+            Reset
+          </button>
+        </div>
+      </div>
 
       {/* Freelancer Cards */}
       <div className="row">
@@ -201,20 +199,20 @@ const GetAllFreelancers = () => {
                   <strong>Role:</strong> {freelancer.role}
                   <br />
                   <strong>Skills:</strong> {freelancer.skills}
-                  <br/>
+                  <br />
                   <strong>Email:</strong> {freelancer.email}
                   <br />
                   <strong>Phone Number:</strong> {freelancer.phoneNumber}
-                  <br/> 
-                  <strong>Joined At:</strong> {new Date(freelancer.createdAt).toLocaleDateString("en-GB")}
+                  <br />
+                  <strong>Joined At:</strong>{" "}
+                  {new Date(freelancer.createdAt).toLocaleDateString("en-GB")}
                 </p>
                 <button
-              className="interested-button btn btn-primary"
-              onClick={() => openModal(freelancer.freelancerId)}
-            >
-              Interested
-            </button>
-                
+                  className="interested-button btn btn-primary"
+                  onClick={() => openModal(freelancer.freelancerId)}
+                >
+                  Interested
+                </button>
               </div>
             </div>
           </div>
@@ -259,12 +257,12 @@ const GetAllFreelancers = () => {
             />
             <div className="modal-actions">
               <button
-                className="submit-button"
+                className="submit-button btn btn-primary"
                 onClick={handleInterestedSubmit}
               >
                 Submit
               </button>
-              <button className="close-button" onClick={closeModal}>
+              <button className="close-button btn btn-secondary" onClick={closeModal}>
                 Close
               </button>
             </div>
@@ -272,12 +270,7 @@ const GetAllFreelancers = () => {
         </div>
       )}
     </div>
-    </div>
-    
   );
 };
 
 export default GetAllFreelancers;
-
-
-

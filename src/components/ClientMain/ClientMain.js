@@ -1,115 +1,164 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ClientMain.css";
-import BackgroundImage from "../../assets/MainScreenBackground.jpg";
-import CardImage from "../../assets/RecruiLogin.jpg"; // Placeholder image for cards
+import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
+import rocket from "../../assets/recruiter/rocket.svg";
+import CardImage1 from "../../assets/recruiter/desktop.webp";
 
 const FreelancerMain = () => {
   const navigate = useNavigate();
+  const [pageLoaded, setPageLoaded] = useState(false);
+
+  useEffect(() => {
+    setPageLoaded(true);
+  }, []);
+
+  const goToLoginPage = () => {
+    navigate("/FreelancerLogin");
+  };
+
+  const goToSignupPage = () => {
+    navigate("/SignUp-Freelancer");
+  };
 
   return (
-    <div className="freelancerMain1">
-      {/* Navigation Bar */}
-      <div className="navbar1">
-        <div className="navbarBrand1">Recruiter HUB</div>
-        <div className="navbarButtons1">
-          <button
-            onClick={() => navigate("/FreelancerLogin")}
-            className="navButton1"
-          >
-            Login
-          </button>
-          <button
-            onClick={() => navigate("/SignUp-Freelancer")}
-            className="navButton1"
-          >
-            Get Started
-          </button>
+    <div className={`freelancer-main ${pageLoaded ? "animate-loaded" : ""}`}>
+      {/* Navbar */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+        <a className="navbar-brand recruiterMain" href="#">
+          FreelancerHub
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto btnMain">
+            <li className="nav-item">
+              <button
+                className="btn btn-outline-light me-3"
+                onClick={goToSignupPage}
+              >
+                Get Started
+              </button>
+            </li>
+            <li className="nav-item">
+              <button className="btn btn-danger" onClick={goToLoginPage}>
+                Login
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="container-fluid px-md-5 py-5 hero-section">
+        <div className="row justify-content-center align-items-center">
+          {/* Content Column */}
+          <div className="col-md-7 text-center">
+            <h1
+              className="display-4 fw-bold lh-1 mb-3"
+              style={{ fontSize: "2.5rem" }}
+            >
+              <span style={{ color: "#0EA5E9", fontSize: "inherit" }}>
+                FreelancerHub
+              </span>{" "}
+              - Discover Best Jobs From
+              <br /> FreelancerHub
+              <br />
+              <img src={rocket} alt="Icon" width="80" height="80" />
+            </h1>
+            <p className="text-muted fs-5" style={{ fontWeight: "600" }}>
+              Find the best{" "}
+              <span className="text-dark fw-bold">Jobs</span> from{" "}
+              <span className="text-dark fw-bold">FreelancerHub</span>.
+            </p>
+            <div className="d-flex justify-content-center">
+              <button
+                className="btn btn-dark btn-sm w-auto me-3"
+                style={{ fontSize: "1.3rem" }}
+                onClick={goToSignupPage}
+              >
+                Get Started
+                <i className="bi bi-arrow-right text-white ms-2"></i>
+              </button>
+            </div>
+          </div>
+
+          {/* Image Column */}
+          <div className="col-md-5 text-center mt-4 mt-md-0">
+            <img
+              src={CardImage1}
+              alt="Freelancer working"
+              className="img-fluid"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="contentWrapper1">
-        {/* Background Section */}
-        <div className="backgroundContainer1">
-          <img
-            src={BackgroundImage}
-            alt="Background"
-            className="backgroundImage1"
-          />
-          <div className="overlayContent1">
-            <h1>Freelancer Page</h1>
-            <p>
-              Connect with recruiters, showcase your talent, and discover your
-              next big opportunity.
-            </p>
-            <button
-              className="overlayButton1"
-              onClick={() => navigate("/SignUp-Freelancer")}
-            >
-              Get Started
-            </button>
-          </div>
-        </div>
-
-        {/* Cards Section */}
-        <div className="cardContainer1">
-          {[1, 2, 3, 4].map((item) => (
-            <div className="card1" key={item}>
-              <img
-                src={CardImage}
-                alt={`Card ${item}`}
-                className="cardImage1"
-              />
-              <div className="cardContent1">
-                <h5>Project {item}</h5>
+      {/* Footer */}
+      <footer className="bg-dark text-white py-4 mt-auto">
+        <div className="container bg-dark">
+          <div className="row">
+            {/* Left Column */}
+            <div className="col-md-4 mb-3">
+              <h5 className="mb-3 logoMain">
+                The agency for impatient brands®
+              </h5>
+            </div>
+            {/* Center Column */}
+            <div className="col-md-4 mb-3">
+              <div>
+                <h6 className="text-uppercase">London</h6>
                 <p>
-                  Discover amazing freelance opportunities and showcase your
-                  skills.
+                  <a
+                    href="mailto:newbusiness@weareimpero.com"
+                    className="text-white text-decoration-none"
+                  >
+                    newbusiness@weareimpero.com
+                  </a>
+                  <br />
+                  +44 20 7998 7571
+                  <br />
+                  Unit 306, Metropolitan Wharf,
+                  <br />
+                  70 Wapping Wall, London E1W 3SS
                 </p>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Footer Section */}
-      <footer className="footer1">
-        <p>Connect with us on social media</p>
-        <div className="socialIcons1">
-          <a
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-              alt="Instagram"
-              className="socialIcon1"
-            />
-          </a>
-          <a
-            href="https://www.whatsapp.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-              alt="WhatsApp"
-              className="socialIcon1"
-            />
-          </a>
-          <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook"
-              className="socialIcon1"
-            />
-          </a>
+            {/* Right Column */}
+            <div className="col-md-4 text-md-end">
+              <h6 className="text-uppercase">
+                Want to be the smartest in your office?
+              </h6>
+              <a
+                href="#"
+                className="text-white text-decoration-none d-block mb-4"
+              >
+                SIGN UP FOR OUR NEWSLETTER →
+              </a>
+              <h6 className="text-uppercase">Follow us</h6>
+              <div className="d-flex justify-content-md-end justify-content-center iconMain">
+                <a href="#" className="text-white mx-2">
+                  <FaInstagram size={24} />
+                </a>
+                <a href="#" className="text-white mx-2">
+                  <FaFacebook size={24} />
+                </a>
+                <a href="#" className="text-white mx-2">
+                  <FaWhatsapp size={24} />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

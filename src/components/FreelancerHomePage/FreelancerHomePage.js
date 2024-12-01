@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";  // Import useNavigate for page navigation
 import "./FreelancerHomePage.css";
+import rocket from "../../assets/recruiter/rocket.svg";
+import CardImage1 from "../../assets/recruiter/desktop.webp";
 
 const FreelancerHomePage = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook for navigation
@@ -141,7 +143,7 @@ const FreelancerHomePage = () => {
     <div className="freelancer-home66">
       {/* Navbar */}
       <nav className="navbar66">
-        <span className="navbar-title66">Freelancer</span>
+        <span className="navbar-title66">Freelancer Hub</span>
         <button className="logout-btn66" onClick={navigateToProfile}>
           My Profile
         </button>
@@ -153,14 +155,39 @@ const FreelancerHomePage = () => {
         </button>
         
       </nav>
+      <div className="container-fluid px-md-5 py-5 hero-section">
+        <div className="row justify-content-center align-items-center">
+          {/* Content Column */}
+          <div className="col-md-7 text-center">
+            <h1
+              className="display-4 fw-bold lh-1 mb-3"
+              style={{ fontSize: "2.5rem" }}
+            >
+              <span style={{ color: "#0EA5E9", fontSize: "inherit" }}>
+                FreelancerHub
+              </span>{" "}
+              - Discover Jobs From
+              <br /> Best Recruiters
+              <br />
+              <img src={rocket} alt="Icon" width="80" height="80" />
+            </h1>
+            <p className="text-muted fs-5" style={{ fontWeight: "600" }}>
+              Find the best{" "}
+              <span className="text-dark fw-bold">Recruiters From</span> from{" "}
+              <span className="text-dark fw-bold">FreelancerHub</span>.
+            </p>
+          </div>
 
-      {/* Image Section */}
-      <div className="image-section66">
-        <img
-          src="https://via.placeholder.com/400" // Replace with your desired image URL
-          alt="Freelancer Hub"
-          className="hero-image66"
-        />
+          {/* Image Column */}
+          <div className="col-md-5 text-center mt-4 mt-md-0">
+            <img
+              src={CardImage1}
+              alt="Freelancer working"
+              className="img-fluid"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Filter Bar */}
@@ -186,7 +213,7 @@ const FreelancerHomePage = () => {
           value={filters.category}
           onChange={handleFilterChange}
         />
-        <button onClick={applyFilters}>Apply Filters</button>
+        <button onClick={applyFilters} className="applybtn">Apply Filters</button>
         {isFilterApplied && (
           <button className="clear-filters66" onClick={clearFilters} title="Clear Filters">
             ✖

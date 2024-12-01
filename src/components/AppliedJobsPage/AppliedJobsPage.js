@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./AppliedJobsPage.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const AppliedJobsPage = () => {
   const [applications, setApplications] = useState([]);
@@ -10,7 +11,7 @@ const AppliedJobsPage = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const freelancerId = localStorage.getItem("freelancerId"); // Retrieve freelancer ID from localStorage
+  const freelancerId = localStorage.getItem("freelancerId");
 
   const fetchApplications = async () => {
     if (!freelancerId) {
@@ -29,16 +30,12 @@ const AppliedJobsPage = () => {
       });
       const result = await response.json();
 
-      console.log(result);  // Log the full response to check the structure
-
       if (result.statusCode === 200) {
-        setApplications(result.data.result);  // Correctly access 'result' from 'data'
+        setApplications(result.data.result);
       } else {
-        console.error("Error fetching applications:", result.message);
         setApplications([]);
       }
     } catch (error) {
-      console.error("Error fetching applications:", error);
       setApplications([]);
     } finally {
       setLoading(false);
@@ -50,12 +47,12 @@ const AppliedJobsPage = () => {
   };
 
   const applyFilters = () => {
-    fetchApplications(); // Fetch applications with the new filters
+    fetchApplications();
   };
 
   const clearFilters = () => {
     setFilters({ jobSkill: "", jobTitle: "" });
-    fetchApplications(); // Fetch applications without filters
+    fetchApplications();
   };
 
   const deleteApplication = async (applicationId) => {
@@ -70,72 +67,85 @@ const AppliedJobsPage = () => {
 
       if (result.statusCode === 200) {
         setMessage("Application Deleted Successfully");
-        fetchApplications(); // Refresh the list after deletion
+        fetchApplications();
       } else {
         setMessage("Error deleting application");
       }
     } catch (error) {
-      console.error("Error deleting application:", error);
       setMessage("Error deleting application");
     }
   };
 
-  // Only fetch applications when the filters change
   useEffect(() => {
     fetchApplications();
-  }, [filters]); // Add filters as dependency
+  }, [filters]);
 
   return (
-    <div className="applied-jobs-page">
-      <nav className="navbar66">
-        <span className="navbar-title66">My Applications</span>
-        <div className="navbar-buttons66">
-          <button className="logout-btn66">Logout</button>
+    <div className="applied-jobs-page container mt-4">
+      {/* Navbar */}
+      <nav className="navbar navbar-light bg-light mb-4 p-3 rounded">
+        <span className="navbar-brand h1">My Applications</span>
+
+        {/* Filter Section in Navbar */}
+        <div className="d-flex gap-3">
+          <input
+            type="text"
+            className="form-control"
+            name="jobTitle"
+            placeholder="Filter by Job Title"
+            value={filters.jobTitle}
+            onChange={handleFilterChange}
+          />
+          <input
+            type="text"
+            className="form-control"
+            name="jobSkill"
+            placeholder="Filter by Job Skill"
+            value={filters.jobSkill}
+            onChange={handleFilterChange}
+          />
         </div>
       </nav>
 
-      {/* Filter Section */}
-      <div className="filter-container66">
-        <input
-          type="text"
-          name="jobTitle"
-          placeholder="Filter by Job Title"
-          value={filters.jobTitle}
-          onChange={handleFilterChange}
-        />
-        <input
-          type="text"
-          name="jobSkill"
-          placeholder="Filter by Job Skill"
-          value={filters.jobSkill}
-          onChange={handleFilterChange}
-        />
-        <button onClick={applyFilters}>Apply Filters</button>
-        <button onClick={clearFilters}>Clear Filters</button>
-      </div>
-
       {/* Notification */}
-      {message && <p className="notification">{message}</p>}
+      {message && <div className="alert alert-info">{message}</div>}
 
       {/* Application List */}
       {loading ? (
-        <p>Loading applications...</p>
+        <div className="text-center">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
       ) : (
-        <div className="applications-list">
+        <div className="row g-3">
           {applications.length > 0 ? (
             applications.map((application) => (
-              <div key={application.applicationId} className="application-card">
-                <h3>{application.proposalTitle}</h3>
-                <p>{application.proposalSkills}</p>
-                <p>{application.proposalCategory}</p>
-                <p>{application.proposalDescription}</p>
-                <button onClick={() => deleteApplication(application.applicationId)} className="delete-btn">
-                  Delete
-                </button>
+              <div key={application.applicationId} className="col-md-6">
+                <div className="card h-100">
+                  <div className="card-body">
+                    <h5 className="card-title">{application.proposalTitle}</h5>
+                    <p className="card-text">
+                      <strong>Skills:</strong> {application.proposalSkills}
+                    </p>
+                    <p className="card-text">
+                      <strong>Category:</strong> {application.proposalCategory}
+                    </p>
+                    <p className="card-text">
+                      <strong>Description:</strong> {application.proposalDescription}
+                    </p>
+                    <button
+                      className="btn btn-danger mt-2 w-100"
+                      onClick={() => deleteApplication(application.applicationId)}
+                    >
+                      Delete Application
+                    </button>
+                  </div>
+                </div>
               </div>
             ))
           ) : (
-            <p>No applications found.</p>
+            <p className="text-center">No applications found.</p>
           )}
         </div>
       )}

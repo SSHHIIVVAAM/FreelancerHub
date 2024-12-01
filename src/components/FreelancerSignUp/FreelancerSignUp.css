@@ -1,33 +1,126 @@
-.signup-containe3 {
-    display: flex;
+/* General Styling */
+.signup-container {
+  background: linear-gradient(to right, #0ea5e9, #2ec4b6);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Layout */
+.card {
+  background: white;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 70%; /* Adjust width */
+  max-width: 1000px; /* Limit maximum width */
+  height: 600px; /* Set specific height */
+  display: flex;
+  margin: 0 auto;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card .card-left {
+  background: linear-gradient(to bottom right, #0ea5e9, #00a896);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  flex: 1; /* Adjust flex for consistent alignment */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .card-left h2 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card .card-left p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card .card-left .signin-btn {
+  padding: 0.8rem 2rem;
+  border: 2px solid white;
+  color: white;
+  border-radius: 30px;
+  background: transparent;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card .card-left .signin-btn:hover {
+  background: white;
+  color: linear-gradient(to bottom right, #0ea5e9, #00a896);
+}
+
+/* Right Form Section */
+.card .card-right {
+  padding: 2rem;
+  flex: 1; /* Adjust flex for consistent alignment */
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100%; /* Ensure full height of the right section */
+}
+
+.card .card-right h2 {
+  color: #05a7b5;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.card .card-right form .form-control {
+  border-radius: 30px;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+}
+
+.card .card-right form .btn-primary {
+  background: #05a7b5;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.card .card-right form .btn-primary:hover {
+  background: #05a7b5;
+}
+
+.card .card-right form .error {
+  color: #d9534f;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .card {
     flex-direction: column;
-    align-items: center;
-    margin: 50px auto;
-    width: 100%;
-    max-width: 400px;
+    height: auto; /* Allow auto height for smaller screens */
+    width: 90%; /* Adjust width for mobile devices */
   }
-  
-  .signup-form3 {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+
+  .card .card-left,
+  .card .card-right {
+    padding: 1rem;
   }
-  
-  .signup-form3 input, .signup-form3 button {
-    margin-bottom: 10px;
-    padding: 12px;
-    font-size: 16px;
+
+  .card .card-left h2 {
+    font-size: 1.5rem;
   }
-  
-  .signup-form3 button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+  .card .card-left .signin-btn {
+    font-size: 0.9rem;
   }
-  
-  .signup-form3 button:hover {
-    background-color: #45a049;
+
+  .card .card-right {
+    overflow-y: auto; /* Ensure scrolling on smaller devices */
   }
-  
+}
