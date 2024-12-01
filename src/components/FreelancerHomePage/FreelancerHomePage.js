@@ -293,7 +293,7 @@ const FreelancerHomePage = () => {
       )}
 
 <footer className="bg-dark text-white py-4 mt-auto fooFooter">
-        <div className="container bg-dark">
+        <div className="container">
           <div className="row">
             {/* Left Column */}
             <div className="col-md-4 mb-3">

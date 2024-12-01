@@ -45,3 +45,10 @@
   height: 300px !important;
   width: 340px !important;
 }
+
+.appJobPage{
+  background-image: url(../../assets/Common/bgprimary.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}

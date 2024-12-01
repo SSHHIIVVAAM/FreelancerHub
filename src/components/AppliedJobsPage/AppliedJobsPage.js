@@ -87,7 +87,7 @@ const AppliedJobsPage = () => {
   }, [filters]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 appJobPage">
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4 p-3 shadow rounded">
         <span className="navbar-brand h1">My Applications</span>
