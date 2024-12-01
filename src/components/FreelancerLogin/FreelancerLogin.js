@@ -92,6 +92,15 @@ const FreelancerLoginPage = () => {
             <button type="submit" className="btn btn-primary w-100">
               Login
             </button>
+             {/* Forgot Password Link */}
+          <div className="text-center">
+            <a
+              href="/change-password" // Navigate to Forgot Password page
+              className="text-decoration-none forgotPass"
+            >
+              Forgot Password?
+            </a>
+          </div>
             {errorMessage && <p className="error">{errorMessage}</p>}
           </form>
         </div>

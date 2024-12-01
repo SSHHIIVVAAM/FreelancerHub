@@ -77,3 +77,11 @@ footer {
 .iconMain a:hover {
   transform: scale(1.2);
 }
+
+.Ffooter{
+  background-color: #0d6efd !important ;
+}
+
+.Loged{
+  background-color: black !important;
+}

@@ -50,7 +50,7 @@ const FreelancerMain = () => {
               </button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-danger" onClick={goToLoginPage}>
+              <button className="btn btn-danger Loged" onClick={goToLoginPage}>
                 Login
               </button>
             </li>
@@ -105,8 +105,8 @@ const FreelancerMain = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-4 mt-auto">
-        <div className="container bg-dark">
+      <footer className="bg-dark text-white py-4 mt-auto Ffooter">
+        <div className="container bg-primary">
           <div className="row">
             {/* Left Column */}
             <div className="col-md-4 mb-3">

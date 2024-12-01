@@ -19,6 +19,7 @@ import AppliedJobPage from "./components/AppliedJobsPage/AppliedJobsPage";
 import GetAllFreelancers from "./components/GetAllFreelancers/GetAllFreelancers";
 import ApplicationsPage from "./components/ApplicationsPage/ApplicationsPage";
 import ForgotPassword from "./components/ChangePassword/changePassword";
+import FreelancerChnPassword from "./components/ForgotPasswordFree/FreelancerForgot";
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/GetAllFreelancers" element={<GetAllFreelancers />} /> {/* New route */}
         <Route path="/applications/:proposalId" element={<ApplicationsPage />} /> {/* New route */}
         <Route path="/forgot-password" element={<ForgotPassword />} /> {/* New route */}
+        <Route path="/change-password" element={<FreelancerChnPassword />} /> {/* New route */}
       </Routes>
     </Router>
   );
