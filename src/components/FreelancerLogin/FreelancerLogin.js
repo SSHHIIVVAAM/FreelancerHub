@@ -50,7 +50,8 @@ const FreelancerLoginPage = () => {
   };
 
   return (
-    <div className="container login-container">
+    <div className="container-fluid p-0">
+      <div className=" login-container">
       <div className="card d-flex flex-row shadow-lg">
         {/* Left Side */}
         <div className="card-left col-md-6 d-flex flex-column justify-content-center align-items-center">
@@ -96,6 +97,8 @@ const FreelancerLoginPage = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 };
 

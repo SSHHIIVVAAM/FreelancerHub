@@ -10,16 +10,15 @@
 
 /* Card Layout */
 .card {
-  background: white;
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 70%;
-  max-width: 1000px;
-  height: 600px;
   display: flex;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+  width: 900px;
+  height: 500px; /* Set a fixed height for the card */
 }
+
 
 .card .card-left {
   background: linear-gradient(to bottom right, #0ea5e9, #00a896);

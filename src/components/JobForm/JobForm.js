@@ -163,7 +163,6 @@
 
 // export default JobForm;
 
-
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./JobForm.css";
@@ -220,7 +219,7 @@ const JobForm = ({ onClose }) => {
       tabIndex="-1"
       style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
     >
-      <div className="modal-dialog modal-dialog-centered modal-lg" style={{ maxWidth: '500px' }}>
+      <div className="modal-dialog modal-dialog-centered modal-lg" style={{ maxWidth: '800px'  , width:'100%'}}>
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Add Job</h5>
@@ -245,6 +244,7 @@ const JobForm = ({ onClose }) => {
                   onChange={(e) => setTitle(e.target.value)}
                   required
                 />
+                <small className="text-muted">Enter a descriptive title for the job.</small>
               </div>
 
               <div className="mb-3">
@@ -259,6 +259,7 @@ const JobForm = ({ onClose }) => {
                   onChange={(e) => setDescription(e.target.value)}
                   required
                 ></textarea>
+                <small className="text-muted">Provide a detailed description of the job.</small>
               </div>
 
               <div className="mb-3">
@@ -273,6 +274,7 @@ const JobForm = ({ onClose }) => {
                   onChange={(e) => setCategory(e.target.value)}
                   required
                 />
+                <small className="text-muted">Specify the job category, e.g., Development, Marketing.</small>
               </div>
 
               <div className="row">
@@ -288,6 +290,7 @@ const JobForm = ({ onClose }) => {
                     onChange={(e) => setBudget(e.target.value)}
                     required
                   />
+                  <small className="text-muted">Enter the budget for this job in USD.</small>
                 </div>
 
                 <div className="col-md-6 mb-3">
@@ -302,12 +305,13 @@ const JobForm = ({ onClose }) => {
                     onChange={(e) => setDurationInDays(e.target.value)}
                     required
                   />
+                  <small className="text-muted">Specify the estimated duration in days.</small>
                 </div>
               </div>
 
               <div className="mb-3">
                 <label htmlFor="skillsRequired" className="form-label">
-                  Skills Required (comma separated)
+                  Skills Required
                 </label>
                 <input
                   type="text"
@@ -317,6 +321,7 @@ const JobForm = ({ onClose }) => {
                   onChange={(e) => setSkillsRequired(e.target.value)}
                   required
                 />
+                <small className="text-muted">List the required skills, separated by commas.</small>
               </div>
 
               <div className="d-flex justify-content-between mt-4">

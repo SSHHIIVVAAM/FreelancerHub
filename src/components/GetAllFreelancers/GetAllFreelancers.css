@@ -1,5 +1,16 @@
 /* GetAllFreelancers.css */
-
+.background-image {
+  background-image: url('../../assets/Common//bgclean.jpg'); /* Ensure the path is correct */
+  background-size: cover;
+  background-attachment: fixed; /* Fix the background */
+  background-position: center; /* Center the background image */
+  min-height: 100vh;
+  padding: 30px 0;
+  filter: brightness(1);
+  position: relative;
+  z-index: 0; /* Set z-index for background */
+  overflow: hidden; /* Ensure background doesn’t scroll */
+}
 body {
   background-color: #f8f9fa;
   font-family: 'Arial', sans-serif;
@@ -35,8 +46,8 @@ body {
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* This ensures the button stays at the bottom */
-  padding: 20px;
+  justify-content: center; /* This ensures the button stays at the bottom */
+  padding: 21px;
   flex-grow: 1; /* Allow the card content to take up available space */
 }
 
@@ -80,7 +91,11 @@ body {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 400px;
+  width: 900px;
+}
+
+.custom-button {
+  margin: 3px;
 }
 
 .modal-actions {
