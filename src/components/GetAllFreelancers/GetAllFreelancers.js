@@ -174,8 +174,8 @@ const GetAllFreelancers = () => {
         {/* Freelancer Cards */}
         <div className="row">
           {filteredFreelancers.map((freelancer) => (
-            <div key={freelancer.freelancerId} className="col-md-4 mb-4">
-              <div className="card text-center">
+            <div key={freelancer.freelancerId} className="col-md-4 mb-4 ">
+              <div className="card text-center getAllFree">
                 <img
                   src={freelancer.profilePicUrl}
                   alt={freelancer.freelancerName}

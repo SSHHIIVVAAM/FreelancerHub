@@ -129,3 +129,8 @@ button.close-button {
   background-color: #e9ecef;
   border-color: #007bff;
 }
+
+.getAllFree{
+  height: 400px !important;
+  width: 350px !important;
+}
