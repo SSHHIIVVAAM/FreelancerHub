@@ -4,21 +4,21 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LogoScreen from "./components/LogoScreen/LogoScreen";
 import MainScreen from "./components/OptionPage/MainScreen";
 import LoginPage from "./components/Login/signupFreelancer/LoginPage";
-import FreelancerMain from "./components/FreelancerMain/FreelancerMain";
-import ClientMain from "./components/ClientMain/ClientMain";
+import FreelancerMain from "./components/RecruiterHome/FreelancerMain";
+import ClientMain from "./components/FreelancerHome/ClientMain";
 import FreelancerLoginPage from "./components/Login/signupFreelancer/LoginPage";
 import FreelancerSignupPage from "./components/Login/signupFreelancer/FreelancerSignupPage";
-import FreelancerMainPage from "./components/FreeHomePage/FreelancerMainPage";
-import ProfilePage from "./components/ProfilePage/ProfilePage";
+import FreelancerMainPage from "./components/RecruiterALhome/FreelancerMainPage";
+import ProfilePage from "./components/RecruiterProfileP/ProfilePage";
 import BrowseJobsPage from "./components/BrowseJobs/BrowseJob"; // Import the new page
 import SignUpFreelancer1 from "./components/FreelancerSignUp/FreelancerSignUp"; // Import the new page
 import FreelancerLogin from "./components/FreelancerLogin/FreelancerLogin";
 import FreelancerProfilePage from "./components/FreelancerProfilePage/ProfilePage";
-import FreelancerHomePage from "./components/FreelancerHomePage/FreelancerHomePage";
+import FreelancerHomePage from "./components/FreelancerALHomePage/FreelancerHomePage";
 import AppliedJobPage from "./components/AppliedJobsPage/AppliedJobsPage";
 import GetAllFreelancers from "./components/GetAllFreelancers/GetAllFreelancers";
 import ApplicationsPage from "./components/ApplicationsPage/ApplicationsPage";
-import ForgotPassword from "./components/ChangePassword/changePassword";
+import ForgotPassword from "./components/RecruiterChangePassword/changePassword";
 import FreelancerChnPassword from "./components/ForgotPasswordFree/FreelancerForgot";
 
 const App = () => {
