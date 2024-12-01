@@ -22,7 +22,7 @@ const BrowseJobsPage = () => {
     setIsLoading(true);
     setError(null);
 
-    let apiUrl = `http://localhost:5022/api/Recruiter/GetAllMyProposals?pageIndex=${currentPage}&pageSize=4&recruiterid=${recruiterId}`;
+    let apiUrl = `http://localhost:5022/api/Recruiter/GetAllMyProposals?pageIndex=${currentPage}&pageSize=6&recruiterid=${recruiterId}`;
 
     // Add filters to the API URL only if they have values
     if (statusFilter) apiUrl += `&status=${statusFilter}`;
@@ -203,13 +203,13 @@ const BrowseJobsPage = () => {
           ) : (
             proposals.map((proposal, index) => (
               <div key={index} className="col-md-6 mb-4">
-                <div className="card shadow-sm custom-card">
+                <div className="shadow-sm custom-card">
                   <div className="card-body">
                     <div className="row">
                       {/* Left Side: Centered Image */}
                       <div className="col-md-4 d-flex justify-content-center align-items-center">
                         <img
-                          src={require("../../assets/recruiter/Job.jpg")} // Static path to image
+                          src={require("../../assets/Common/application.png")} // Static path to image
                           alt="Job"
                           className="img-fluid" // Make the image responsive
                           style={{ maxHeight: "210px", objectFit: "cover" }} // Ensures the image doesn't stretch

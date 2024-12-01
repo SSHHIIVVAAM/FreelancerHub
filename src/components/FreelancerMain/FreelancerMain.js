@@ -84,6 +84,7 @@ const FreelancerMain = () => {
               <button
                 className="btn btn-primary btn-sm w-auto me-3"
                 style={{ fontSize: "1.3rem" }}
+                onClick={goToSignupPage}
               >
                 Get Started
                 <i className="bi bi-arrow-right text-white ms-2"></i>
