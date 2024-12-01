@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ProfilePage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -9,6 +10,12 @@ const ProfilePage = () => {
   const [profilePicUrl, setProfilePicUrl] = useState(null);
   const [newProfilePic, setNewProfilePic] = useState(null);
   const recruiterId = localStorage.getItem("recruiterId");
+
+  const navigate = useNavigate();
+  const handleSignOut = () => {
+    localStorage.removeItem("recruiterData");
+    navigate("/");
+  };
 
   const fetchRecruiterData = useCallback(() => {
     if (recruiterId) {
@@ -252,13 +259,13 @@ const ProfilePage = () => {
                 <>
                   <div className="action-button">
                     <button
-                      className="btn btn-dark custom-button"
+                      className="btn btn-primary custom-button"
                       onClick={handleUpdate}
                     >
                       Update
                     </button>
                     <button
-                      className="btn btn-outline-dark custom-button"
+                      className="btn btn-outline-primary custom-button"
                       onClick={() => setIsEditing(false)}
                     >
                       Cancel
@@ -269,12 +276,12 @@ const ProfilePage = () => {
                 <>
                   <div className="action-button">
                     <button
-                      className="btn btn-dark custom-button"
+                      className="btn btn-primary custom-button"
                       onClick={() => setIsEditing(true)}
                     >
                       Edit
                     </button>
-                    <button className="btn btn-outline-dark custom-button">
+                    <button className="btn btn-outline-primary custom-button" onClick={handleSignOut}>
                       Logout
                     </button>
                   </div>

@@ -24,7 +24,7 @@ const FreelancerMain = () => {
   return (
     <div className={`freelancer-main ${pageLoaded ? "animate-loaded" : ""}`}>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+      <nav className="navbar navbar-expand-lg px-5">
         <a className="navbar-brand recruiterMain" href="#">
           RecruiterHub
         </a>
@@ -50,7 +50,7 @@ const FreelancerMain = () => {
               </button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-danger" onClick={goToLoginPage}>
+              <button className="btn btn-light " onClick={goToLoginPage}>
                 Login
               </button>
             </li>
@@ -82,7 +82,7 @@ const FreelancerMain = () => {
             </p>
             <div className="d-flex justify-content-center">
               <button
-                className="btn btn-dark btn-sm w-auto me-3"
+                className="btn btn-primary btn-sm w-auto me-3"
                 style={{ fontSize: "1.3rem" }}
               >
                 Get Started
@@ -104,8 +104,8 @@ const FreelancerMain = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-4 mt-auto">
-        <div className="container bg-dark">
+      <footer className="bg-primary text-white py-4 mt-auto">
+        <div className="container ">
           <div className="row">
             {/* Left Column */}
             <div className="col-md-4 mb-3">

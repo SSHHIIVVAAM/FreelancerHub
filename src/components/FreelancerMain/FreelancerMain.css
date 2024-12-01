@@ -2,6 +2,10 @@
   color: white;
 }
 
+.blueColor{
+  background-color: #0ea5e9 !important;
+}
+
 .display-4{
   color: #b5b5b5;
 }
@@ -15,7 +19,6 @@
 }
 
 .btn-light{
-  background-color: #ffca2c !important;
 }
 
 .connect{
@@ -51,6 +54,7 @@
 
 .navbar {
   animation: fadeInRight 1s ease-in-out;
+  color: #0ea5e9;
 }
 
 .hero-section {
@@ -67,7 +71,6 @@ footer {
 
 .btn:hover {
   transform: scale(1.1);
-  background-color: #e6b800 !important;
 }
 
 .iconMain a {

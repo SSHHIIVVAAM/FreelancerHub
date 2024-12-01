@@ -149,7 +149,8 @@ const GetAllFreelancers = () => {
   if (error) return <div className="alert alert-danger">{error}</div>;
 
   return (
-    <div className="container mt-5">
+    <div className="background-image">
+        <div className="container mt-5">
       <h1 className="text-center mb-4">Freelancers List</h1>
 
       {/* Filters */}
@@ -173,10 +174,10 @@ const GetAllFreelancers = () => {
     />
   </div>
   <div className="col-md-4 d-flex align-items-center">
-    <button className="btn btn-primary me-2" onClick={handleSearch}>
+    <button className="btn btn-primary me-3" onClick={handleSearch}>
       Search
     </button>
-    <button className="btn btn-secondary" onClick={handleCancelFilter}>
+    <button className="btn btn-outline-dark" onClick={handleCancelFilter}>
       Reset
     </button>
   </div>
@@ -200,6 +201,12 @@ const GetAllFreelancers = () => {
                   <strong>Role:</strong> {freelancer.role}
                   <br />
                   <strong>Skills:</strong> {freelancer.skills}
+                  <br/>
+                  <strong>Email:</strong> {freelancer.email}
+                  <br />
+                  <strong>Phone Number:</strong> {freelancer.phoneNumber}
+                  <br/> 
+                  <strong>Joined At:</strong> {new Date(freelancer.createdAt).toLocaleDateString("en-GB")}
                 </p>
                 <button
               className="interested-button btn btn-primary"
@@ -265,7 +272,12 @@ const GetAllFreelancers = () => {
         </div>
       )}
     </div>
+    </div>
+    
   );
 };
 
 export default GetAllFreelancers;
+
+
+

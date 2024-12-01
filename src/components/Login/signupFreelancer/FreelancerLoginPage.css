@@ -53,9 +53,13 @@
   }
 }
 
+/* Add background image to the parent container */
 .container-fluid {
   animation: fadeIn 1s ease-in-out;
+  background: url('../../../assets/Common/bgclean.jpg') no-repeat center center;
+  background-size: cover;
 }
+
 
 .loginleft {
   animation: slideInLeft 1s ease;

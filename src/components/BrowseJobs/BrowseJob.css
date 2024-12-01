@@ -53,7 +53,7 @@
 
   
   .background-image {
-    background-image: url('../../assets/profilebg.png'); /* Ensure the path is correct */
+    background-image: url('../../assets/Common//bgclean.jpg'); /* Ensure the path is correct */
     background-size: cover;
     background-attachment: fixed; /* Fix the background */
     background-position: center; /* Center the background image */

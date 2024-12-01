@@ -188,7 +188,7 @@ const BrowseJobsPage = () => {
             </select>
           </div>
           <div className="col-md-3 mb-2">
-            <button className="btn btn-dark w-100" onClick={handleSearch}>
+            <button className="btn btn-primary w-100" onClick={handleSearch}>
               Search
             </button>
           </div>
@@ -261,7 +261,7 @@ const BrowseJobsPage = () => {
                             />
                             <div className="d-flex">
                               <button
-                                className="btn btn-dark custom-button "
+                                className="btn btn-primary custom-button "
                                 onClick={() => handleSaveChanges(index)}
                               >
                                 Save
@@ -300,7 +300,7 @@ const BrowseJobsPage = () => {
                             </p>
                             <div className="d-flex">
                               <button
-                                className="btn btn-dark custom-button"
+                                className="btn btn-primary custom-button"
                                 onClick={() =>
                                   handleApplicationsClick(proposal.proposalId)
                                 }
@@ -308,7 +308,7 @@ const BrowseJobsPage = () => {
                                 Applications
                               </button>
                               <button
-                                className="btn btn-outline-dark custom-button"
+                                className="btn btn-outline-primary custom-button"
                                 onClick={() => handleEditClick(index)}
                               >
                                 Edit
@@ -347,7 +347,7 @@ const BrowseJobsPage = () => {
                 <button
                   className={`page-link ${
                     currentPage === index + 1
-                      ? "bg-dark text-white pe-3"
+                      ? "bg-primary text-white pe-3"
                       : "bg-white text-dark pe-3"
                   }`}
                   onClick={() => handlePageChange(index + 1)}

@@ -34,7 +34,7 @@ const FreelancerMainPage = () => {
   return (
     <div className="container-fluid bg-light min-vh-100 d-flex flex-column p-0">
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+      <nav className="navbar navbar-expand-lg px-5">
         <a className="navbar-brand recruiterMain" link="#">
           RecruiterHub
         </a>
@@ -68,10 +68,14 @@ const FreelancerMainPage = () => {
               </button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-danger" onClick={handleSignOut}>
+              <button className="btn btn-light" onClick={goToProfilePage}>My Profile</button>
+            </li>
+            <li className="nav-item">
+              <button className="btn btn-dark" onClick={handleSignOut}>
                 Sign Out
               </button>
             </li>
+            
           </ul>
         </div>
       </nav>
@@ -100,7 +104,7 @@ const FreelancerMainPage = () => {
             </p>
             <div className="d-flex justify-content-center">
               <button
-                className="btn btn-dark btn-sm w-auto me-3"
+                className="btn btn-primary btn-sm w-auto me-3"
                 style={{ fontSize: "1.3rem" }}
                 onClick={goToBrowseJob}
               >
@@ -125,13 +129,13 @@ const FreelancerMainPage = () => {
               className="img-fluid"
               style={{ maxWidth: "100%", height: "auto" }}
             />
-            <button
+            {/* <button
               className="btn btn-dark mt-3"
               style={{ fontSize: "1.3rem" }}
               onClick={goToProfilePage}
             >
               Go to Profile
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
@@ -140,8 +144,8 @@ const FreelancerMainPage = () => {
       {isJobFormVisible && <JobForm onClose={toggleJobForm} />}
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-4 mt-auto">
-        <div className="container bg-dark">
+      <footer className="bg-primary text-white py-4 mt-auto">
+        <div className="container bg-primary">
           <div className="row">
             {/* Left Column */}
             <div className="col-md-4 mb-3">
