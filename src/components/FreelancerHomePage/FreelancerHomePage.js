@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";  // Import useNavigate for page 
 import "./FreelancerHomePage.css";
 import rocket from "../../assets/recruiter/rocket.svg";
 import CardImage1 from "../../assets/recruiter/desktop.webp";
-import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaWhatsapp, FaUser } from "react-icons/fa";
 
 const FreelancerHomePage = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook for navigation
@@ -145,15 +145,19 @@ const FreelancerHomePage = () => {
       {/* Navbar */}
       <nav className="navbar66">
         <span className="navbar-title66">Freelancer Hub</span>
-        <button className="logout-btn66" onClick={navigateToProfile}>
-          My Profile
-        </button>
-        <button className="logout-btn66" onClick={navigateToMain}>
-          Logout
-        </button>
-        <button className="logout-btn66" onClick={navigateToApplications}>
+       
+        <button className="logout-btn66 applicationz" onClick={navigateToApplications}>
           Applications
         </button>
+        <button className="logout-btn66" onClick={navigateToProfile}>
+        <a href="#" className="text-white mx-2 loggo1">
+                  <FaUser size={24} />
+                </a>
+        </button>
+        <button className="logout-btn66 bg-black" onClick={navigateToMain}>
+          Logout
+        </button>
+      
         
       </nav>
       <div className="container-fluid px-md-5 py-5 hero-section">

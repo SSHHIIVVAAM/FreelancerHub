@@ -17,8 +17,8 @@
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   opacity: 0;
-  transform: scale(0.5); /* Start small */
-  animation: fadeInScale 2s ease-out forwards; /* Animation triggers on mount */
+  transform: scale(0.5); 
+  animation: fadeInScale 2s ease-out forwards; 
 }
 
 /* Logo styling */
@@ -41,14 +41,14 @@
   color: #666;
 }
 
-/* Keyframes for fade-in and scale effect */
+
 @keyframes fadeInScale {
   0% {
     opacity: 0;
-    transform: scale(0.5); /* Start smaller */
+    transform: scale(0.5); 
   }
   100% {
     opacity: 1;
-    transform: scale(1); /* End at normal size */
+    transform: scale(1); 
   }
 }

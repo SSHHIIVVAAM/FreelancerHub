@@ -21,12 +21,13 @@
 
 /* Background animation */
 .blur-background22 img {
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
     object-fit: cover;
     filter: blur(0px);
     opacity: 10;
     animation: zoom-in 2s ease-out forwards; /* Zoom-in animation */
+    width: 30rem;
 }
 
 /* Zoom-in effect */
@@ -136,4 +137,12 @@
 .main-btn22:hover {
     background-color: #afafa8;
     transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.txt01{
+    font-weight: 700;
+}
+
+.imgy{
+    border-radius: 20rem;
 }
