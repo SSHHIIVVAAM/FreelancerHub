@@ -77,7 +77,7 @@ const ChangePasswordFreelancer = () => {
       const data = await response.json();
       if (response.ok && data.statusCode === 200) {
         setMessage("Password updated successfully.");
-        navigate("/login");
+        navigate("/FreelancerLogin"); // Navigate to FreelancerLogin page
       } else {
         setError(data.message || "Failed to update password.");
       }

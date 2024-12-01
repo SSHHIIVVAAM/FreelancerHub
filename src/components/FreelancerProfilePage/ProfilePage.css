@@ -1,7 +1,7 @@
 .profile-page {
     padding: 2rem;
     /* background-color: #f9f9f9; */
-    background-image: url(../../assets/recruiter/desktop.webp);
+    background-image: url(../../assets/Common/bgclean.jpg);
     max-width: 1440px;
     margin-top: 50px;
     margin-left: 50px;
@@ -10,7 +10,9 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
-    /* background-size: cover; */
+    justify-content: center;
+    background-size: cover;
+
   }
   
   .profile-header {
@@ -87,3 +89,6 @@
     margin-bottom: 1rem;
   }
   
+  .profile-card{
+    margin-left: 350px;
+  }

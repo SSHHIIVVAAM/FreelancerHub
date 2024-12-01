@@ -2,7 +2,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LogoScreen from "./components/LogoScreen/LogoScreen";
-import MainScreen from "./components/MainScreen/MainScreen";
+import MainScreen from "./components/OptionPage/MainScreen";
 import LoginPage from "./components/Login/signupFreelancer/LoginPage";
 import FreelancerMain from "./components/FreelancerMain/FreelancerMain";
 import ClientMain from "./components/ClientMain/ClientMain";

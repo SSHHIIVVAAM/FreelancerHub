@@ -31,7 +31,7 @@ const MainScreen = () => {
         {/* Right Section with Content */}
         <div className="col-md-6">
           <h1 className="display-4 fw-bold mb-4">
-            Welcome To NaukriHUB
+            Welcome To FreelancerHUB
           </h1>
           <p className="text-muted mb-4 txt01">
           Job searchers can use optimistic affirmations, success visualisation, and a positive peer group. Job searchers may enhance their confidence and keep a positive mindset during the hiring process by concentrating on their accomplishments and qualities.
