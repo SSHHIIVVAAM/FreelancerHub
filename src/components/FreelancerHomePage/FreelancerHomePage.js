@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";  // Import useNavigate for page 
 import "./FreelancerHomePage.css";
 import rocket from "../../assets/recruiter/rocket.svg";
 import CardImage1 from "../../assets/recruiter/desktop.webp";
+import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 const FreelancerHomePage = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook for navigation
@@ -290,7 +291,65 @@ const FreelancerHomePage = () => {
           </div>
         </div>
       )}
+
+<footer className="bg-dark text-white py-4 mt-auto fooFooter">
+        <div className="container bg-dark">
+          <div className="row">
+            {/* Left Column */}
+            <div className="col-md-4 mb-3">
+              <h5 className="mb-3 logoMain">
+                The agency for impatient brands®
+              </h5>
+            </div>
+            {/* Center Column */}
+            <div className="col-md-4 mb-3">
+              <div>
+                <h6 className="text-uppercase">London</h6>
+                <p>
+                  <a
+                    href="mailto:newbusiness@weareimpero.com"
+                    className="text-white text-decoration-none"
+                  >
+                    newbusiness@weareimpero.com
+                  </a>
+                  <br />
+                  +44 20 7998 7571
+                  <br />
+                  Unit 306, Metropolitan Wharf,
+                  <br />
+                  70 Wapping Wall, London E1W 3SS
+                </p>
+              </div>
+            </div>
+            {/* Right Column */}
+            <div className="col-md-4 text-md-end">
+              <h6 className="text-uppercase">
+                Want to be the smartest in your office?
+              </h6>
+              <a
+                href="#"
+                className="text-white text-decoration-none d-block mb-4"
+              >
+                SIGN UP FOR OUR NEWSLETTER →
+              </a>
+              <h6 className="text-uppercase">Follow us</h6>
+              <div className="d-flex justify-content-md-end justify-content-center iconMain">
+                <a href="#" className="text-white mx-2">
+                  <FaInstagram size={24} />
+                </a>
+                <a href="#" className="text-white mx-2">
+                  <FaFacebook size={24} />
+                </a>
+                <a href="#" className="text-white mx-2">
+                  <FaWhatsapp size={24} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
+    
   );
 };
 

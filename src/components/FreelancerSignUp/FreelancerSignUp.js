@@ -63,7 +63,7 @@ const FreelancerSignupPage = () => {
   };
 
   return (
-    <div className="container signup-container">
+    <div className="mainContainer">
       <div className="card d-flex flex-row shadow-lg">
         {/* Left Side */}
         <div className="card-left col-md-6 d-flex flex-column justify-content-center align-items-center">

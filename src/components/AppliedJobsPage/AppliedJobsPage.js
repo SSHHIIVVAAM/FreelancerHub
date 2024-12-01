@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./AppliedJobsPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./AppliedJobsPage.css";
 
 const AppliedJobsPage = () => {
   const [applications, setApplications] = useState([]);
@@ -22,12 +22,15 @@ const AppliedJobsPage = () => {
     setLoading(true);
     try {
       const query = `pageIndex=1&pageSize=10&freelancerId=${freelancerId}&jobSkill=${filters.jobSkill}&jobTitle=${filters.jobTitle}`;
-      const response = await fetch(`http://localhost:5022/api/Freelancer/GetMyAllApplications?${query}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      });
+      const response = await fetch(
+        `http://localhost:5022/api/Freelancer/GetMyAllApplications?${query}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
       const result = await response.json();
 
       if (result.statusCode === 200) {
@@ -57,12 +60,15 @@ const AppliedJobsPage = () => {
 
   const deleteApplication = async (applicationId) => {
     try {
-      const response = await fetch(`http://localhost:5022/api/Freelancer/DeleteMyApplication?applicationId=${applicationId}`, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-        },
-      });
+      const response = await fetch(
+        `http://localhost:5022/api/Freelancer/DeleteMyApplication?applicationId=${applicationId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
       const result = await response.json();
 
       if (result.statusCode === 200) {
@@ -81,13 +87,11 @@ const AppliedJobsPage = () => {
   }, [filters]);
 
   return (
-    <div className="applied-jobs-page container mt-4">
+    <div className="container mt-4">
       {/* Navbar */}
-      <nav className="navbar navbar-light bg-light mb-4 p-3 rounded">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4 p-3 shadow rounded">
         <span className="navbar-brand h1">My Applications</span>
-
-        {/* Filter Section in Navbar */}
-        <div className="d-flex gap-3">
+        <div className="d-flex gap-3 ms-auto">
           <input
             type="text"
             className="form-control"
@@ -118,12 +122,12 @@ const AppliedJobsPage = () => {
           </div>
         </div>
       ) : (
-        <div className="row g-3">
+        <div className="row">
           {applications.length > 0 ? (
             applications.map((application) => (
-              <div key={application.applicationId} className="col-md-6">
-                <div className="card h-100">
-                  <div className="card-body">
+              <div key={application.applicationId} className="col-md-6 col-lg-4 mb-4">
+                <div className="card h-100 shadow-sm getjobCard">
+                  <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{application.proposalTitle}</h5>
                     <p className="card-text">
                       <strong>Skills:</strong> {application.proposalSkills}
@@ -135,7 +139,7 @@ const AppliedJobsPage = () => {
                       <strong>Description:</strong> {application.proposalDescription}
                     </p>
                     <button
-                      className="btn btn-danger mt-2 w-100"
+                      className="btn btn-danger mt-auto"
                       onClick={() => deleteApplication(application.applicationId)}
                     >
                       Delete Application

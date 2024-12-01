@@ -10,7 +10,7 @@
     justify-content: space-between; /* Distribute space between title and buttons */
     align-items: center; /* Vertically center content */
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #0ea5e9;
     color: white;
     border-radius: 10px;
   }
@@ -27,7 +27,7 @@
   }
 
   .logout-btn66 {
-    background-color: #333333;
+    background-color: #0ea5e9;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -43,7 +43,7 @@
   
   
 .logout-btn66:hover {
-    background-color: #ff0000;
+    background-color: #c1100e;
   }
   
   .image-section66 {
@@ -66,6 +66,7 @@
     margin-bottom: 20px;
     align-items: center;
     background-color: #333;
+    border-radius: 6px;
   }
   
   .filter-container66 input {
@@ -138,6 +139,8 @@
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    /* width: 120px; */
+    /* margin-left: 1300px; */
   }
   
   .apply-btn66:hover {
@@ -240,4 +243,11 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+
+
+.fooFooter{
+  margin-top: 15px !important;
+  margin-bottom: 0px !important;
 }

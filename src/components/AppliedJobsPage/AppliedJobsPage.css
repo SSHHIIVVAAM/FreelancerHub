@@ -18,8 +18,8 @@
 }
 
 .card {
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 .card:hover {
@@ -39,4 +39,9 @@
 .spinner-border {
   width: 3rem;
   height: 3rem;
+}
+
+.getjobCard{
+  height: 300px !important;
+  width: 340px !important;
 }

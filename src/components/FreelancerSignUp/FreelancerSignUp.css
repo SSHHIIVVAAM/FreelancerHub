@@ -1,5 +1,5 @@
 /* General Styling */
-.signup-container {
+.mainContainer {
   background: linear-gradient(to right, #0ea5e9, #2ec4b6);
   color: white;
   min-height: 100vh;
@@ -10,16 +10,16 @@
 
 /* Card Layout */
 .card {
-  background: white;
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 70%; /* Adjust width */
-  max-width: 1000px; /* Limit maximum width */
-  height: 600px; /* Set specific height */
-  display: flex;
-  margin: 0 auto;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  background: white !important;
+  border: none !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  width: 70% !important; /* Adjust width */
+  max-width: 1000px !important; /* Limit maximum width */
+  height: 600px !important; /* Set specific height */
+  display: flex !important;
+  margin: 0 auto !important;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1) !important;
 }
 
 .card .card-left {
