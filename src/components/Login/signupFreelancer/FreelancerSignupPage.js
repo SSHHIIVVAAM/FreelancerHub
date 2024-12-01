@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./FreelancerSignupPage.css"
+import "./FreelancerSignupPage.css";
 import rocket from "../../../assets/recruiter/rocket.svg";
 
 const FreelancerSignupPage = () => {
@@ -16,6 +16,7 @@ const FreelancerSignupPage = () => {
   });
   const [profilePic, setProfilePic] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // Loading state for signup
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -29,6 +30,8 @@ const FreelancerSignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Start loader
+
     const form = new FormData();
     form.append("ProfilePic", profilePic);
     form.append("RecruiterName", formData.recruiterName);
@@ -51,6 +54,7 @@ const FreelancerSignupPage = () => {
         }
       );
       const result = await response.json();
+
       if (response.ok && result.statusCode === 200) {
         alert("Successfully registered!");
         localStorage.setItem("recruiterData", JSON.stringify(result.data));
@@ -61,16 +65,18 @@ const FreelancerSignupPage = () => {
     } catch (err) {
       console.error("Error during signup:", err);
       setError("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false); // Stop loader
     }
   };
 
   return (
-    <div className="container-fluid vh-100 ">
+    <div className="container-fluid vh-100">
       <div className="row h-100">
         {/* Left Section */}
         <div className="col-md-6 d-flex align-items-center justify-content-center text-white MainSign">
           <div className="joinSign">
-          <img src={rocket} alt="Icon" width="80" height="80" className="rock" />
+            <img src={rocket} alt="Icon" width="80" height="80" className="rock" />
             <h1 className="display-4">Join Recruiter Hub</h1>
             <p className="lead leadSignup leadSign">
               Find the best talent or become a part of something bigger.
@@ -79,7 +85,7 @@ const FreelancerSignupPage = () => {
         </div>
 
         {/* Right Section */}
-        <div className="col-md-6 d-flex align-items-center ">
+        <div className="col-md-6 d-flex align-items-center">
           <div className="container">
             <h1 className="text-center mb-4 signh1">Sign Up</h1>
             <form onSubmit={handleSubmit}>
@@ -226,8 +232,18 @@ const FreelancerSignupPage = () => {
               </div>
 
               {/* Submit Button */}
-              <button type="submit" className="btn w-100 btnsign1">
-                Sign Up
+              <button
+                type="submit"
+                className="btn w-100 btnsign1"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <div className="spinner-border spinner-border-sm" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  "Sign Up"
+                )}
               </button>
             </form>
 

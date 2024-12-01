@@ -47,8 +47,9 @@
 }
 
 .appJobPage{
-  background-image: url(../../assets/Common/bgprimary.jpg);
+  background-image: url(../../assets/Common/bgclean.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px;
+  width: 100%;
 }

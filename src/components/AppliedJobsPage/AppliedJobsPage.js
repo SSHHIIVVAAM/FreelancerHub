@@ -60,6 +60,7 @@ const AppliedJobsPage = () => {
 
   const deleteApplication = async (applicationId) => {
     try {
+      setLoading(true); // Start loader before deleting
       const response = await fetch(
         `http://localhost:5022/api/Freelancer/DeleteMyApplication?applicationId=${applicationId}`,
         {
@@ -79,12 +80,14 @@ const AppliedJobsPage = () => {
       }
     } catch (error) {
       setMessage("Error deleting application");
+    } finally {
+      setLoading(false); // Stop loader after operation
     }
   };
 
   useEffect(() => {
     fetchApplications();
-  }, [filters]);
+  }, []);
 
   return (
     <div className="container mt-4 appJobPage">
@@ -108,24 +111,35 @@ const AppliedJobsPage = () => {
             value={filters.jobSkill}
             onChange={handleFilterChange}
           />
+          <button className="btn btn-primary" onClick={applyFilters}>
+            Apply Filters
+          </button>
+          <button className="btn btn-secondary" onClick={clearFilters}>
+            Clear Filters
+          </button>
         </div>
       </nav>
 
       {/* Notification */}
       {message && <div className="alert alert-info">{message}</div>}
 
-      {/* Application List */}
+      {/* Loader */}
       {loading ? (
-        <div className="text-center">
+        <div className="text-center mt-5">
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
+          <p className="mt-2">Fetching applications, please wait...</p>
         </div>
       ) : (
         <div className="row">
+          {/* Application List */}
           {applications.length > 0 ? (
             applications.map((application) => (
-              <div key={application.applicationId} className="col-md-6 col-lg-4 mb-4">
+              <div
+                key={application.applicationId}
+                className="col-md-6 col-lg-4 mb-4"
+              >
                 <div className="card h-100 shadow-sm getjobCard">
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{application.proposalTitle}</h5>
@@ -136,11 +150,14 @@ const AppliedJobsPage = () => {
                       <strong>Category:</strong> {application.proposalCategory}
                     </p>
                     <p className="card-text">
-                      <strong>Description:</strong> {application.proposalDescription}
+                      <strong>Description:</strong>{" "}
+                      {application.proposalDescription}
                     </p>
                     <button
                       className="btn btn-danger mt-auto"
-                      onClick={() => deleteApplication(application.applicationId)}
+                      onClick={() =>
+                        deleteApplication(application.applicationId)
+                      }
                     >
                       Delete Application
                     </button>

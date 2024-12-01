@@ -6,10 +6,12 @@ const FreelancerLoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Start loader
 
     try {
       const response = await fetch(
@@ -46,68 +48,79 @@ const FreelancerLoginPage = () => {
     } catch (error) {
       console.error("Error during login:", error);
       setErrorMessage("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false); // Stop loader
     }
   };
 
   return (
     <div className="container-fluid p-0">
-      <div className=" login-container">
-      <div className="card d-flex flex-row shadow-lg">
-        {/* Left Side */}
-        <div className="card-left col-md-6 d-flex flex-column justify-content-center align-items-center">
-          <h2>Welcome Back!</h2>
-          <p>To continue your journey, please login with your personal info</p>
-          <button
-            className="btn signup-btn"
-            onClick={() => navigate("/SignUp-Freelancer")}
-          >
-            SIGN UP
-          </button>
-        </div>
-
-        {/* Right Side */}
-        <div className="card-right col-md-6">
-          <h2 className="freeh2">Freelancer Login</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary w-100">
-              Login
-            </button>
-             {/* Forgot Password Link */}
-          <div className="text-center">
-            <a
-              href="/change-password" // Navigate to Forgot Password page
-              className="text-decoration-none forgotPass"
+      <div className="login-container">
+        <div className="card d-flex flex-row shadow-lg">
+          {/* Left Side */}
+          <div className="card-left col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <h2>Welcome Back!</h2>
+            <p>To continue your journey, please login with your personal info</p>
+            <button
+              className="btn signup-btn"
+              onClick={() => navigate("/SignUp-Freelancer")}
             >
-              Forgot Password?
-            </a>
+              SIGN UP
+            </button>
           </div>
-            {errorMessage && <p className="error">{errorMessage}</p>}
-          </form>
+
+          {/* Right Side */}
+          <div className="card-right col-md-6">
+            <h2 className="freeh2">Freelancer Login</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="btn btn-primary w-100"
+                disabled={isLoading} // Disable button while loading
+              >
+                {isLoading ? (
+                  <div className="spinner-border spinner-border-sm" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  "Login"
+                )}
+              </button>
+              {/* Forgot Password Link */}
+              <div className="text-center">
+                <a
+                  href="/change-password" // Navigate to Forgot Password page
+                  className="text-decoration-none forgotPass"
+                >
+                  Forgot Password?
+                </a>
+              </div>
+              {errorMessage && <p className="error">{errorMessage}</p>}
+            </form>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-    
   );
 };
 

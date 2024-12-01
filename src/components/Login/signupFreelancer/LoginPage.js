@@ -7,6 +7,7 @@ const FreelancerLoginPage = () => {
   const [password, setPassword] = useState(""); // State for password
   const [errorMessage, setErrorMessage] = useState(null); // Error message state
   const [pageLoaded, setPageLoaded] = useState(false); // Animation state
+  const [isLoading, setIsLoading] = useState(false); // Loading state for login
   const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
@@ -16,6 +17,7 @@ const FreelancerLoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
 
+    setIsLoading(true); // Show loader
     try {
       const response = await fetch(
         "http://localhost:5022/api/Recruiter/RecruiterLogin",
@@ -42,6 +44,8 @@ const FreelancerLoginPage = () => {
     } catch (error) {
       console.error("Error during login:", error);
       setErrorMessage("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false); // Hide loader
     }
   };
 
@@ -93,8 +97,18 @@ const FreelancerLoginPage = () => {
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="btn w-100 mb-3 loginbtn">
-              Login
+            <button
+              type="submit"
+              className="btn w-100 mb-3 loginbtn"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <div className="spinner-border spinner-border-sm" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
 

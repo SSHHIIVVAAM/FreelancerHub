@@ -14,6 +14,7 @@ const FreelancerSignupPage = () => {
   });
   const [profilePic, setProfilePic] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -27,6 +28,7 @@ const FreelancerSignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Start loader
 
     const form = new FormData();
     form.append("ProfilePic", profilePic);
@@ -59,6 +61,8 @@ const FreelancerSignupPage = () => {
     } catch (err) {
       console.error("Error during signup:", err);
       setError("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false); // Stop loader
     }
   };
 
@@ -76,7 +80,7 @@ const FreelancerSignupPage = () => {
             SIGN IN
           </button>
         </div>
-  
+
         {/* Right Side */}
         <div className="card-right col-md-6">
           <h2>Create Account</h2>
@@ -173,15 +177,25 @@ const FreelancerSignupPage = () => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary w-100">
-              Sign Up
+            <button
+              type="submit"
+              className="btn btn-primary w-100"
+              disabled={isLoading} // Disable button while loading
+            >
+              {isLoading ? (
+                <div className="spinner-border spinner-border-sm" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                "Sign Up"
+              )}
             </button>
             {error && <p className="error">{error}</p>}
           </form>
         </div>
       </div>
     </div>
-  );  
+  );
 };
 
 export default FreelancerSignupPage;
