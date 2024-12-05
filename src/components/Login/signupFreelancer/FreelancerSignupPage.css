@@ -34,3 +34,11 @@
   color: white !important;
   font-weight: 400 !important;
 }
+
+.conFluid {
+  padding: 0px; /* Add padding around the container */
+}
+
+.SignForm {
+  margin-bottom: 20px; /* Add margin at the bottom of the form */
+}

@@ -56,9 +56,8 @@ const FreelancerSignupPage = () => {
       const result = await response.json();
 
       if (response.ok && result.statusCode === 200) {
-        alert("Successfully registered!");
         localStorage.setItem("recruiterData", JSON.stringify(result.data));
-        navigate("/freelancer-main");
+        navigate("/login");
       } else {
         setError(result.message || "Signup failed. Please try again.");
       }
@@ -71,12 +70,18 @@ const FreelancerSignupPage = () => {
   };
 
   return (
-    <div className="container-fluid vh-100">
+    <div className="container-fluid vh-100 conFluid">
       <div className="row h-100">
         {/* Left Section */}
         <div className="col-md-6 d-flex align-items-center justify-content-center text-white MainSign">
           <div className="joinSign">
-            <img src={rocket} alt="Icon" width="80" height="80" className="rock" />
+            <img
+              src={rocket}
+              alt="Icon"
+              width="80"
+              height="80"
+              className="rock"
+            />
             <h1 className="display-4">Join Recruiter Hub</h1>
             <p className="lead leadSignup leadSign">
               Find the best talent or become a part of something bigger.
@@ -88,7 +93,7 @@ const FreelancerSignupPage = () => {
         <div className="col-md-6 d-flex align-items-center">
           <div className="container">
             <h1 className="text-center mb-4 signh1">Sign Up</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="SignForm" onSubmit={handleSubmit}>
               {/* Profile Picture */}
               <div className="mb-3">
                 <label htmlFor="profilePic" className="form-label">
@@ -238,7 +243,10 @@ const FreelancerSignupPage = () => {
                 disabled={isLoading}
               >
                 {isLoading ? (
-                  <div className="spinner-border spinner-border-sm" role="status">
+                  <div
+                    className="spinner-border spinner-border-sm"
+                    role="status"
+                  >
                     <span className="visually-hidden">Loading...</span>
                   </div>
                 ) : (

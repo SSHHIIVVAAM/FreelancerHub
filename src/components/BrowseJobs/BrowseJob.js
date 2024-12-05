@@ -133,7 +133,12 @@ const BrowseJobsPage = () => {
                       </div>
                       <div className="col-md-8">
                         <p className="card-text">
-                          <strong>Job Title:</strong> {proposal.title}
+                          <strong>Job Title:</strong> {proposal.title} <br/>
+                          <strong>Category:</strong> {proposal.category} <br/>
+                          <strong>Budget:</strong> {proposal.budget} <br/>
+                          <strong>Skills:</strong> {proposal.skillsRequired} <br/>
+                          <strong>Duration:</strong> {proposal.durationInDays} <br/>
+                          <strong>Description:</strong> {proposal.description}
                         </p>
                         {/* Add more fields */}
                         <div className="d-flex">
