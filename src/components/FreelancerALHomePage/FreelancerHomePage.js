@@ -296,48 +296,46 @@ const FreelancerHomePage = () => {
         </div>
       )}
 
-<footer className="bg-dark text-white py-4 mt-auto fooFooter">
-        <div className="container">
+<footer className="bg-primary text-white py-4 mt-auto">
+        <div className="container bg-primary">
           <div className="row">
             {/* Left Column */}
-            <div className="col-md-4 mb-3">
-              <h5 className="mb-3 logoMain">
-                The agency for impatient brands®
-              </h5>
+            <div className="col-md-4 mb-3 text-start">
+              <h5 className="mb-3 logoMain">The place to Connecting talent with opportunity, seamlessly.</h5>
             </div>
             {/* Center Column */}
-            <div className="col-md-4 mb-3">
+            <div className="col-md-4 mb-3 ">
               <div>
-                <h6 className="text-uppercase">London</h6>
+                <h6 className="text-uppercase">Kuwait</h6>
                 <p>
                   <a
                     href="mailto:newbusiness@weareimpero.com"
                     className="text-white text-decoration-none"
                   >
-                    newbusiness@weareimpero.com
+                    freelancerhub752@gmail.com
                   </a>
                   <br />
-                  +44 20 7998 7571
+                  +965 99641320
                   <br />
-                  Unit 306, Metropolitan Wharf,
+                  Crystal Tower, Kuwait City
                   <br />
-                  70 Wapping Wall, London E1W 3SS
+                  Kuwait
                 </p>
               </div>
             </div>
             {/* Right Column */}
             <div className="col-md-4 text-md-end">
               <h6 className="text-uppercase">
-                Want to be the smartest in your office?
+                Want to get regular updates
               </h6>
               <a
                 href="#"
                 className="text-white text-decoration-none d-block mb-4"
               >
-                SIGN UP FOR OUR NEWSLETTER →
+                Connect with us→
               </a>
               <h6 className="text-uppercase">Follow us</h6>
-              <div className="d-flex justify-content-md-end justify-content-center iconMain">
+              <div className="d-flex justify-content-md-end justify-content-center">
                 <a href="#" className="text-white mx-2">
                   <FaInstagram size={24} />
                 </a>

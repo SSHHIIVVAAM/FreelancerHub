@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./ClientMain.css";
+import "./RecruiterMain.css";
 import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import rocket from "../../assets/recruiter/rocket.svg";
 import CardImage1 from "../../assets/recruiter/desktop.webp";
@@ -14,19 +14,19 @@ const FreelancerMain = () => {
   }, []);
 
   const goToLoginPage = () => {
-    navigate("/FreelancerLogin");
+    navigate("/login");
   };
 
   const goToSignupPage = () => {
-    navigate("/SignUp-Freelancer");
+    navigate("/freelancer-signup");
   };
 
   return (
     <div className={`freelancer-main ${pageLoaded ? "animate-loaded" : ""}`}>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+      <nav className="navbar navbar-expand-lg px-5">
         <a className="navbar-brand recruiterMain" href="#">
-          FreelancerHub
+          RecruiterHub
         </a>
         <button
           className="navbar-toggler"
@@ -50,7 +50,7 @@ const FreelancerMain = () => {
               </button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-danger Loged" onClick={goToLoginPage}>
+              <button className="btn btn-light " onClick={goToLoginPage}>
                 Login
               </button>
             </li>
@@ -68,21 +68,21 @@ const FreelancerMain = () => {
               style={{ fontSize: "2.5rem" }}
             >
               <span style={{ color: "#0EA5E9", fontSize: "inherit" }}>
-                FreelancerHub
+                RecruiterHub
               </span>{" "}
-              - Discover Best Jobs From
-              <br /> FreelancerHub
+              - Discover Talented
+              <br /> Freelancers
               <br />
               <img src={rocket} alt="Icon" width="80" height="80" />
             </h1>
             <p className="text-muted fs-5" style={{ fontWeight: "600" }}>
               Find the best{" "}
-              <span className="text-dark fw-bold">Jobs</span> from{" "}
-              <span className="text-dark fw-bold">FreelancerHub</span>.
+              <span className="text-dark fw-bold">freelancers</span> from{" "}
+              <span className="text-dark fw-bold">RecruiterHub</span>.
             </p>
             <div className="d-flex justify-content-center">
               <button
-                className="btn btn-dark btn-sm w-auto me-3"
+                className="btn btn-primary btn-sm w-auto me-3"
                 style={{ fontSize: "1.3rem" }}
                 onClick={goToSignupPage}
               >
@@ -105,48 +105,46 @@ const FreelancerMain = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-4 mt-auto Ffooter">
+      <footer className="bg-primary text-white py-4 mt-auto">
         <div className="container bg-primary">
           <div className="row">
             {/* Left Column */}
-            <div className="col-md-4 mb-3">
-              <h5 className="mb-3 logoMain">
-                The agency for impatient brands®
-              </h5>
+            <div className="col-md-4 mb-3 text-start">
+              <h5 className="mb-3 logoMain">The place to Connecting talent with opportunity, seamlessly.</h5>
             </div>
             {/* Center Column */}
-            <div className="col-md-4 mb-3">
+            <div className="col-md-4 mb-3 ">
               <div>
-                <h6 className="text-uppercase">London</h6>
+                <h6 className="text-uppercase">Kuwait</h6>
                 <p>
                   <a
                     href="mailto:newbusiness@weareimpero.com"
                     className="text-white text-decoration-none"
                   >
-                    newbusiness@weareimpero.com
+                    freelancerhub752@gmail.com
                   </a>
                   <br />
-                  +44 20 7998 7571
+                  +965 99641320
                   <br />
-                  Unit 306, Metropolitan Wharf,
+                  Crystal Tower, Kuwait City
                   <br />
-                  70 Wapping Wall, London E1W 3SS
+                  Kuwait
                 </p>
               </div>
             </div>
             {/* Right Column */}
             <div className="col-md-4 text-md-end">
               <h6 className="text-uppercase">
-                Want to be the smartest in your office?
+                Want to get regular updates
               </h6>
               <a
                 href="#"
                 className="text-white text-decoration-none d-block mb-4"
               >
-                SIGN UP FOR OUR NEWSLETTER →
+                Connect with us→
               </a>
               <h6 className="text-uppercase">Follow us</h6>
-              <div className="d-flex justify-content-md-end justify-content-center iconMain">
+              <div className="d-flex justify-content-md-end justify-content-center">
                 <a href="#" className="text-white mx-2">
                   <FaInstagram size={24} />
                 </a>

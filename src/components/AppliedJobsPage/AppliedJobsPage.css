@@ -1,3 +1,17 @@
+
+.background-image {
+  background-image: url('../../assets/Common//bgclean.jpg'); /* Ensure the path is correct */
+  background-size: cover;
+  background-attachment: fixed; /* Fix the background */
+  background-position: center; /* Center the background image */
+  min-height: 100vh;
+  padding: 30px 0;
+  filter: brightness(1);
+  position: relative;
+  z-index: 0; /* Set z-index for background */
+  overflow: hidden; /* Ensure background doesn’t scroll */
+}
+
 .applied-jobs-page {
   min-height: 100vh;
   padding: 1rem;
@@ -44,12 +58,4 @@
 .getjobCard{
   height: 300px !important;
   width: 340px !important;
-}
-
-.appJobPage{
-  background-image: url(../../assets/Common/bgclean.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 10px;
-  width: 100%;
 }

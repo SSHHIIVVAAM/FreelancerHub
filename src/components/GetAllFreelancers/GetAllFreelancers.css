@@ -121,9 +121,9 @@ button.close-button {
   color: white;
 }
 
-.pagination .page-link {
+/* .pagination .page-link {
   color: #007bff;
-}
+} */
 
 .pagination .page-link:hover {
   background-color: #e9ecef;
