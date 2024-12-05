@@ -184,3 +184,11 @@
     }
   }
   
+  .savebtn{
+    width: 160px;
+  }
+
+  .cancelbtn{
+    width: 160px;
+    height: 46px;
+  }
