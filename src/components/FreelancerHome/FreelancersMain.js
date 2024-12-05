@@ -145,7 +145,7 @@ const FreelancerMain = () => {
               </a>
               <h6 className="text-uppercase">Follow us</h6>
               <div className="d-flex justify-content-md-end justify-content-center">
-                <a href="#" className="text-white mx-2">
+                <a href="https://www.instagram.com/freelancerhub2024/profilecard/?igsh=MXRhZTNzaGY0ODVzag%3D%3D" className="text-white mx-2">
                   <FaInstagram size={24} />
                 </a>
                 <a href="#" className="text-white mx-2">
